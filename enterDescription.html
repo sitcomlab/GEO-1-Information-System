@@ -1,0 +1,36 @@
+<!DOCTYPE html>   
+<html lang="en">   
+    <head>
+        <title>Geo 1</title>
+    <frame src="verweise3.htm" name="Navigation" scrolling="no">	<!-- disables the ability to scroll -->
+        <meta name="viewport" content="width=1024" />
+        <meta charset="utf-8">   
+
+      
+        <link rel="stylesheet" type="text/css" href="css/system.css">
+        <link type="text/css" rel="stylesheet" href="css/layout-default-latest.css" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="js/functions.js"  type="text/javascript"></script>
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <script type="text/javascript" src="js/jquery.layout-latest.js"></script>
+
+ 
+<script src="js/jquery.mobile-1.4.2.js"></script>
+    </head>
+    <body> 
+	<p style="width: 30%;">
+	<input  name="vorname" type="text" size="30" maxlength="30" id ="roomnumber">
+	<textarea name="user_eingabe" cols="50" rows="10" id = "text"></textarea>
+	<button onclick="save()">Speichern</button>
+	</p>
+<script>
+	function save(){
+		var room = document.getElementById("roomnumber").value;
+		var text = document.getElementById("text").value;
+		localStorage[""+room+""] = text;
+	}
+</script>
+        
+    </body>  
+</html>  

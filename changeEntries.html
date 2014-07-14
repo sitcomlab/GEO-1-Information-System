@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Delete staff</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+  <script>
+
+  	$.post(
+			"php/processPersons.php?",
+		{	
+		},
+			function(data){
+				data = data.split(";");
+				  $(function() {
+						$( "#tags" ).autocomplete({
+						source: data
+					});
+				});
+			}			
+		);
+
+	function deletePerson(){
+		$.post(
+				"php/DeleteStaff.php?",
+			{	
+			Name: document.getElementById("tags").value.trim()
+			},
+				function(data){
+				console.log(data);				
+				}			
+			);
+	}
+	
+	function addPerson(){
+			$.post(
+				"php/AddStaff.php?",
+			{	
+			FirstName: document.getElementById("firstName").value.trim(),
+			LastName: document.getElementById("lastName").value.trim(),
+			Room: document.getElementById("room").value.trim(),
+			Affiliation: document.getElementById("aff").value.trim()
+			},
+				function(data){
+					console.log(data);				
+				}			
+			);
+	}
+  </script>
+</head>
+<body>
+ 
+<div class="ui-widget">
+	<label for="tags">Delete staff member: </label>
+	<input id="tags">
+	<button onclick="deletePerson();">Delete</button></br></br></br>
+	<label for="firstName">Add staff member: First Name </label>
+	<input id="firstName">
+	<label for="lastName">Last Name</label>
+	<input id="lastName">
+	<label for="room">Room: </label>
+	<input id="room">
+	<label for="aff">Affiliation: </label>
+	<select id = "aff">
+		<option value="Institute for Didactics of Geography">Institute for Didactics of Geography</option>
+		<option value="Institute for Geoinformatics">Institute for Geoinformatics</option>
+		<option value="Common section">Common section</option>
+		<option value="Fossil botany">Fossil botany</option>
+		<option value="Institute for Landscape Ecology">Institute for Landscape Ecology</option>
+		<option value="Geographic commission">Geographic commission</option>
+		<option value="Institute for Geography">Institute for Geography</option>
+		<option value="Miscellaneous">Miscellaneous</option>
+		<option value="Miscellaneous">Facility Management</option>
+		<option value="Miscellaneous">Library</option>
+	</select>
+  <button onclick="addPerson();">Add</button>
+</div>
+ 
+ 
+</body>
+</html>

@@ -1,0 +1,198 @@
+#accordion{
+text-align:center;
+margin-left:25%;
+margin-right:25%;
+margin-top:5%;
+}
+
+#allInstitutes{
+text-align:center;
+margin-top:5%;
+margin-left:5%;
+}
+
+#allChoosings{
+text-align:center;
+margin-top:5%;
+}
+
+#allRooms{
+text-align:center;
+margin-top:5%;
+}
+
+body{overflow:hidden;}
+
+#buttonHome{
+	position:absolute;
+	left:3%;
+	top:1%;
+}
+
+.choosings{
+	font-size: 250%;
+	font-family: arial;	
+	text-align: center;
+	color:black;
+	box-shadow: 10px 10px 8px black;
+	border-style: solid;
+	border-color:black;
+	border-width:2px;
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+	border-radius:6px;
+	padding:5px;
+}
+
+#collapse{
+	font-size:130%;
+}
+
+#description{
+	font-size:1em;
+	font-weight:bold;
+}
+
+#flag{
+	height:3em;
+	width:6em;
+}
+
+#floor{
+	font-size:2em;
+	font-weight:bold;
+	margin-bottom:0%;
+}
+
+#foreground{
+	background-color:blue;
+	background-repeat:repeat;
+}
+
+#home_button{
+	position:absolute;
+	left:2%;
+	margin-top:5%;
+	width:70%;
+}
+
+#institutetitle{
+	position: absolute;
+	top:150px;
+	left:7%;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 40px;
+	font-family: arial;
+	color:black;
+}
+
+#map{
+	position:absolute;
+	margin-top:8%;
+	left:4%;
+	width:50%;
+}
+
+.footer-wrapper {
+position: absolute;
+bottom: 0px;
+width: 100%;
+}
+
+#myTab{
+text-align:center;
+}
+
+#myTabCenter{
+position:absolute;
+left:30%;
+top:1%;
+display:none;
+}
+
+#name{
+	font-size:200%;
+	font-weight:bold;
+	text-align:center;
+}
+
+#navbarContent{
+	font-style:arial; 
+	font-size:15px;
+}
+
+#navbarStartpage{
+	position:absolute;
+	top:8%;
+	font-size:40px; 
+	width:300px;
+	color:black;
+	font-weight: bold;
+
+}
+
+#navbarSupport{
+	font-size:40px; 
+	position:absolute; 
+	top:8%;
+	left:37%;
+	color:black;
+	font-weight: bold;
+}
+
+#photo{
+	position:absolute;
+	margin-top:13%;
+	left:2%;
+	width:98%;
+}
+
+#stafflist{
+	margin-top:10%;
+}
+
+#textparts{
+	position:absolute;	
+	margin-top:26%;
+	margin-left:55%;
+}
+
+#subtitle_en{
+	position:absolute;
+	top:20%;
+	font:arial;
+	font-size:2em;
+	color:green;
+	margin-left:10%;
+	margin-right:10%;
+}
+#subtitle_de{
+	position:absolute;
+	top:50%;
+	font:arial;
+	font-size:2em;
+	color:green;
+	margin-left:10%;
+	margin-right:10%;
+}
+
+#title{
+	font-weight:bold;
+	text-align:center;
+	font:arial;
+	font-size:2.5em;
+	color:green;
+
+}
+
+#buttonSupport{
+	position:absolute;
+	left:15%;
+	top:10%;	
+}
+
+
+
+
+

@@ -1,0 +1,5 @@
+[Thu Jun 05 16:40:59 2014] [notice] Apache/2.2.22 (Ubuntu) PHP/5.3.10-1ubuntu3.6 with Suhosin-Patch configured -- resuming normal operations
+[Thu Jun 05 16:50:54 2014] [error] [client 77.177.201.47] PHP Warning:  fopen(persons.txt): failed to open stream: Permission denied in /var/www/php/AddStaff.php on line 8, referer: http://giv-konkol.uni-muenster.de/changeEntries.html
+[Thu Jun 05 16:50:54 2014] [error] [client 77.177.201.47] PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in /var/www/php/AddStaff.php on line 11, referer: http://giv-konkol.uni-muenster.de/changeEntries.html
+[Thu Jun 05 16:50:54 2014] [error] [client 77.177.201.47] PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in /var/www/php/AddStaff.php on line 13, referer: http://giv-konkol.uni-muenster.de/changeEntries.html
+[Thu Jun 05 16:50:54 2014] [error] [client 77.177.201.47] PHP Warning:  file_put_contents(allRooms.txt): failed to open stream: Permission denied in /var/www/php/AddStaff.php on line 70, referer: http://giv-konkol.uni-muenster.de/changeEntries.html

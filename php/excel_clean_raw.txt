@@ -1,0 +1,503 @@
+001	080.001			Allg.								
+002	080.002			Allg.								
+003	080.003			Allg.								
+004	080.004			Allg.								
+005	080.005			Allg.								
+006	080.006			Allg.								
+007	080.007			Allg.								
+008	080.008			Allg.								
+0021	080.201			Allg.								
+0022	080.202			Allg.								
+0031	080.301			Allg.								
+0	080.402			Allg.								
+0042	080.402			Allg.								
+0051	080.501			Allg.								
+0052	080.502			Allg.								
+0053	080.503			Allg.								
+0054	080.504			Allg.								
+0056	080.506			Allg.								
+01	090.001			Allg.								
+02	090.002			Allg.								
+03	090.003			Allg.								
+04	090.004			Allg.								
+05	090.005			Allg.								
+06	090.006			Allg.								
+07	090.007			Allg.								
+08	090.008			Allg.								
+09	090.009			Allg.								
+010	090.010			Bibliothek		Bibliothek						
+011	090.011			HH		Bibliothek						Gabi Jonas
+012	090.012			Allg.		Teeküche						
+013	090.013			Allg.		Kopierer						
+014	090.014			HH		Bibliothek						Hilfskräfte Bibliothek
+015	090.015			Allg.		UV-Raum						
+016	090.016			HH		Bibliothek						Melanie Jost
+017	090.017			Bibliothek		Bibliothek						
+018	090.018			Bibliothek		Bibliothek						Gruppenraum Bibliothek
+019	090.019			Bibliothek		Bibliothek						Gruppenraum Bibliothek
+020	090.020			Bibliothek		Bibliothek						Gruppenraum Bibliothek
+021	090.021			Allg.		Putzraum						
+022	090.022			Allg.								
+021a	090.201			Allg.								
+022a	090.202			Allg.								
+031	090.301			Allg.								
+041	090.401			Allg.								
+042	090.402			Allg.								
+043	090.403			Allg.								
+051	090.501			Allg.								
+052	090.502			Allg.								
+053	090.503			Allg.								
+054	090.504			Allg.								
+055	090.505			Allg.								
+056	090.506			Allg.								
+1	100.001			Allg.		Hörsaal						
+2	100.002			HH	BE							Dr. Beate Keplin
+3	100.003			HH	BE							Gabriele Kreulich
+4	100.004			HH	BE							Verena Möllenbeck
+4	100.004			HH	BE							Nele Scharffenstein
+5	100.005			Allg.		Kopierer						Kopierer
+6	100.006			Allg.								
+7	100.007			HH		Elektronik-werkstatt						Peter Sulmann
+7	100.007			HH		Elektronik-werkstatt						Julia Schimkat
+8	100.008			HH		Werkstatt						
+9	100.009			Allg.								
+10	100.010			Seminar	IfDG	Lernatelier						Lernatelier
+11	100.011			HH	ZDM	ZDM						ZDM
+12	100.012			Allg.		Teeküche						Teeküche
+13	100.013			Allg.		Putzraum						Putzraum
+14	100.014			Allg.		UV-Raum						UV-Raum
+15	100.015			HH	ZDM	ZDM						ZDM
+16	100.016			HH	IVV							Dr. Torsten Prinz
+17	100.017			HH	IVV							Stefan Platz
+17	100.017			HH	IVV							Norbert Robben
+17	100.017			HH	IVV							Malte Holthaus
+18	100.018			Allg.		Erste-Hilfe-Raum						Erste-Hilfe-Raum
+19	100.019			HH	IVV	Lager						IVV-Lager
+20	100.020			Allg.								
+21	100.021			Allg.								
+22	100.022					Lager						Lager
+23	100.023			FS		Fachschaft Geo/Lök						Fachschaft Geo / LÖK
+24	100.024			FS		Fachschaft Geoinformatik						Fachschaft Geoinformatik
+25	100.025			Allg.								
+26	100.026			Allg.								
+27	100.027			Allg.		Kopierer						Kopierer
+28	100.028			Allg.		Lager						Lager
+29	100.029			Allg.								
+30	100.030			Allg.								
+31	100.031			Allg.								
+32	100.032			Allg.								
+33	100.033			Allg.								
+34	100.034			Allg.		UV-Raum						UV-Raum
+21a	100.201			Allg.								
+22a	100.202			Allg.								
+23a	100.203			Allg.								
+31a	100.301			Allg.								
+41	100.401			Allg.								
+42	100.402			Allg.								
+43	100.403			Allg.								
+44	100.404			Allg.								
+45	100.405			Allg.								
+46	100.406			Allg.								
+51	100.501			Allg.								
+52	100.502			Allg.								
+53	100.503			Allg.								
+54	100.504			Allg.								
+55	100.505			Allg.								
+56	100.506			Allg.								
+101	110.001			Projektraum	ifgi	SIL (AG Schwering)						N.N.
+102	110.002			DM	ifgi	Graduate School						N.N.
+103	110.003			DM	FB 12 Chemie	Dekanat						Ulrike Mink
+104	110.004			DM	ifgi	SIL (AG Schwering)						Klaus Broelemann
+104	110.004			DM	ifgi	SIL (AG Schwering)						Imaduddin Humayun
+105	110.005			DM	FB 12 Chemie	Dekanat						Bianca Hortig
+106	110.006			HH	ifgi	SIL (AG Schwering)						Prof. Dr. Angela Schwering
+107	110.007			Allg.								
+108	110.008			HH	ifgi	SIL (AG Schwering)						Dr. Rui Li
+109	110.009			HH	ifgi	SIL						Malumbo Chipfoya
+110	110.010			Bespr.		Besprechung						Besprechung klein
+111	110.011			DM	ifgi	SIL						Jia Wang
+111	110.011			DM	ifgi	SIL						Vanessa Joy Anacta
+112	110.012			DM	ifgi	SIL						Sahib Jan
+112	110.012			DM	ifgi	SIL						Binga Bolay
+113	110.013			DM	ifgi	BLISS						Prof. Dr. Gilberto Camara
+114	110.014				ifgi	BLISS						N.N.
+114	110.014				ifgi							Albert Sanchez
+115	110.015			HH	ifgi							Dr. Christoph Brox
+116	110.016			Allg.	GeKo	GeKo						Lager LWL
+117	110.017			HH	ifgi	Webteam						Christoph Kisfeld
+117	110.017			HH	ifgi	Webteam						Jan van Zadelhoff
+118	110.018			Allg.		LAN-Raum						LAN-Raum
+119	110.019			Allg.		UV-Raum						UV-Raum
+120	110.020			DM	ifgi							Dr. Albert Remke
+121	110.021			DM	ifgi	Lager						Lager
+122	110.022			Allg.								
+123	110.023			HH	ifgi	Sekretariat						Karsten Höwelhans
+123	110.023			HH	ifgi	Sekretariat						Heike Wiefel
+124	110.024			HH	BE	FrontOffice						Dr. Friederike Gabel
+124	110.024			HH	BE	FrontOffice						Katrin Wöltje
+124	110.024			HH	BE	FrontOffice						Katja Wrenger 
+125	110.025			CIP		StudLab						StudLab 125
+126	110.026			CIP		StudLab						StudLab 126
+127	110.027			Allg.		Teeküche						Teeküche
+128	110.028			Allg.		Putzraum						Putzraum
+129	110.029			Allg.		UV-Raum						UV-Raum
+130	110.030			CIP		StudLab						StudLab 130
+131	110.031			HH	ifgi	STML (AG Pebesma)						Prof. Dr. Edzer Pebesma
+132	110.032			DM	ifgi	Graduate School						Meng Lu
+132	110.032			DM	ifgi	STML (AG Pebesma)						Mirjam Rehr
+133	110.033			DM	ifgi	STML (AG Pebesma)						Florian Lahn
+133	110.033			DM	ifgi	Graduate School						Nanki Sidhu
+133	110.033			DM	ifgi	Graduate School						Merret Buurmann
+134	110.034			Allg.		Drucken						Drucken
+135	110.035			DM	ifgi	STML (AG Pebesma)						Kristina Helle
+135	110.035			DM	ifgi	STML (AG Pebesma)						N.N.
+136	110.036			HH	Dek.	Dekanat						Aktenarchiv
+137	110.037			DM	ifgi	STML (AG Pebesma)						Christian Knoth
+137	110.037			DM	ifgi	STML (AG Pebesma)						N.N.
+138	110.038			DM	ifgi	STML (AG Pebesma)						Benedikt Gräler
+139	110.039			HH	ifgi	STML (AG Pebesma)						Dr. Christoph Stasch
+140	110.040			DM	ifgi	STML (AG Pebesma)						Juliane Brink
+140	110.040			DM	ifgi	STML (AG Pebesma)						Daniel Nüst
+141	110.041			HH	ifgi	STML (AG Pebesma)						Hilfskräfte STML
+142	110.042			Allg.								
+143	110.043			Allg.								
+144	110.044			Allg.								
+145	110.045			Allg.								
+146	110.046			Allg.								
+147	110.047			Bespr.		Besprechung						Besprechung groß
+121a	110.201			Allg.								
+122a	110.202			Allg.								
+123a	110.203			Allg.								
+131a	110.301			Allg.								
+141a	110.401			Allg.								
+142a	110.402			Allg.								
+143a	110.403			Allg.								
+151a	110.501			Allg.								
+152a	110.502			Allg.								
+153a	110.503			Allg.								
+154a	110.504			Allg.								
+155a	110.505			Allg.								
+156a	110.506			Allg.								
+201	120.001			CIP	ifgi	PC-Raum						PC-Raum
+202	120.002			DM								N.N.
+203	120.003			DM	ILÖK	AG Hölzel						Annika Brinkert
+203	120.003			DM	ILÖK	AG Hölzel						Verena Busch
+203	120.003			DM	ILÖK	AG Hölzel						N.N.
+204	120.004			DM	FB 12 Chemie	Dekanat						Christiana Stute
+204	120.004			DM	FB 12 Chemie	Dekanat						Agnes Wrobel
+205	120.005			DM	FB 12 Chemie	Dekanat						Besprechung klein
+206	120.006			DM	ifgi	MUSIL						Desiree Daniel
+207	120.007			HH	ifgi	SIL						Thomas Bartoschek
+208	120.008			DM	ifgi	GI@School						Sergej Mukhamentov
+208	120.008			DM	ifgi	GI@School						Jan Wirwahn
+208	120.008			DM	ifgi	GI@School						N.N.
+209	120.009			DM	ifgi	GI@School						Marike Meijer
+209	120.009			DM	ifgi	GI@School						Christopher Rothermund
+209	120.009			DM	ifgi	GI@School						Sebastian Niklasch
+210	120.010			DM	ifgi	Erasmus Mundus						Qi Qjang
+211	120.011			Bespr.								Erasmus-Raum
+212	120.012			DM								N.N.
+213	120.013			DM	ifgi	Erasmus Mundus						N.N.
+214	120.014			Projektraum	ifgi	SIL						Dr. Mark Padgham
+215	120.015			DM	ifgi							Dr. Simon Scheider
+216	120.016			HH	ifgi							Auriol Degbelo
+217	120.017			Projektraum	IfDG							Alexander Braun
+218	120.018			Allg.								EDV-Lager
+219	120.019			Projektraum	IfDG							Dipl. Geogr. Katja Wrenger
+220	120.020			Allg.								Drucken
+221	120.021			HH	IfDG							Daniel Kuhmann
+222	120.022			Allg.		Lager						Lager
+223	120.023			Allg.		UV-Raum						UV-Raum
+224	120.024			HH	IfDG	Sekretariat						Heike Steinau
+225	120.025					Medienlager						Medienlager
+226	120.026			HH 	IfDG	AG Hemmer						Julian Bette
+227	120.027			HH	IfDG	AG Schrüfer						Nina Brendel
+228	120.028			Bespr.	IfDG	Kernpraktikum						Kernpraktikum
+229	120.029			HH	IfDG							Dr. Jan Christoph Schubert
+230	120.030			HH 	IfDG	AG Hemmer						Prof. Dr. Michael Hemmer
+231	120.031			HH	IfDG	AG Schrüfer						Prof. Dr. Gabriele Schrüfer
+232	120.032			HH	IfDG	HiWis						Hilfskräfte IfDG
+233	120.033			Allg.								
+234	120.034			DM	ifgi	MUSIL						Matthias Pfeil
+234	120.034			DM	ifgi	MUSIL						Saqib Rasheed
+235	120.035			DM	ifgi	MUSIL						Jim Jones
+235	120.035			DM	ifgi	MUSIL						Peter Zimmerhof
+236	120.036			Allg.		Teeküche						Teeküche
+237	120.037			Allg.		Putzraum						Putzraum
+238	120.038			DM	ifgi	SITCOM (AG Kray)						Nemanja Kostic
+238	120.038			DM	ifgi	SITCOM (AG Kray)						Elisabet Adeva
+239	120.039			Allg.								
+240	120.040			HH	ifgi	SITCOM (AG Kray)						Holger Fritze
+241	120.041			HH	ifgi	SITCOM (AG Kray)						Prof. Dr. Christian Kray
+242	120.042			Seminar								Seminarraum
+243	120.043			Allg.		Drucken						Drucken
+244	120.044			Allg.		LAN-Raum						LAN-Raum
+245	120.045					Labor						Labor
+246	120.046			Allg.								
+247	120.047			Projektraum	ifgi	SITCOM (AG Kray)						Thore Fechner
+248	120.048			HH	ifgi							Erasmus Stipendiaten
+248	120.048			HH	ifgi							Maurin Osterkamp
+249	120.049			DM	ILÖK	AG Buttschardt						Jan Jehmann
+249	120.049			DM	ILÖK	AG Buttschardt						Gäste und Stipendiaten aus Brasilien 
+250	120.050			Allg.								
+251	120.051			Allg.								
+252	120.052			Allg.								
+253	120.053			Allg.								
+254	120.054			Allg.								
+255	120.055			Bespr.		Besprechung						Besprechung groß
+221a	120.201			Allg.								
+222a	120.202			Allg.								
+223a	120.203			Allg.								
+231a	120.301			Allg.								
+241a	120.401			Allg.								
+242a	120.402			Allg.								
+243a	120.403			Allg.								
+251a	120.501			Allg.								
+252a	120.502			Allg.								
+253a	120.503			Allg.								
+254a	120.504			Allg.								
+255a	120.505			Allg.								
+256a	120.506			Allg.								
+301	130.001			HH	IfG	AG Wood						Prof. Dr. Gerald Wood
+302	130.002			HH	IfG	AG Wood						Marc Gottwald
+302	130.002			HH	IfG	AG Wood						Hilfskräfte AG Wood
+303	130.003			HH	IfG	AG Wood						Dr. Christoph Scheuplein
+304	130.004			HH	IfG	Sekretariat 						Nadine Härtl
+304	130.004			HH	IfG	Sekretariat 						Azubi
+305	130.005			HH	IfG							Dr. Christian Krajewski
+306	130.006			DM	IfG							Martina Kobras
+306	130.006			DM	IfG							Susanne Kubiak
+307	130.007			HH	IfG	AG Reuber						Kirsten Linnemann
+308	130.008			HH	IfG	AG Reuber						Hilfskräfte AG Reuber
+309	130.009			Bespr.		Besprechung						Besprechung groß
+310	130.010			HH	IfG	SozioLab						SozioLab
+311	130.011			HH	IfG	AG Reuber						Prof. Sr. Paul Reuber
+312	130.012			DM	IfG							Florian Teetz
+312	130.012			DM	IfG							Patrick Niemann
+312	130.012			DM	IfG							Michael Brinkschröder
+313	130.013			DM	IfG							Dr. Michael Weichbrodt
+313	130.013			DM	IfG							Gerald Staacke
+314	130.014				IfG							Archiv
+315	130.015			DM	IfG							Dr. Julia Richter
+316	130.016				IfG							Archiv
+317	130.017			Allg.		UV-Raum						UV-Raum
+318	130.018			DM	Paläobotanik	AG Kerp						Patricia Kearney
+319	130.019			HH	Paläobotanik	AG Kerp						Studierende
+320	130.020			HH	Paläobotanik	AG Kerp						Gesteinssammlung
+321	130.021			HH	Paläobotanik	Bibliothek						Bibliothek
+322	130.022			HH	Paläobotanik	AG Kerp						N.N.
+323	130.023			Seminar		Seminar						Seminarraum
+324	130.024			HH	Paläobotanik	AG Kerp						Hilfskräfte AG Kerp
+325	130.025			Allg.								
+326	130.026			HH	Paläobotanik	AG Kerp						Prof. Kerp
+327	130.027			Allg.		Teeküche						Teeküche
+328	130.028			Projektraum	Paläobotanik	AG Kerp						Dr. Frank Neumann
+328	130.028			Projektraum	Paläobotanik	AG Kerp						Anne Niehus
+329	130.029			Allg.		Putzraum						Putzraum
+330	130.030			Allg.		UV-Raum						UV-Raum
+331	130.031			HH	Paläobotanik	AG Kerp						Gesteinslabor
+332	130.032			HH	Paläobotanik	AG Kerp						Gesteinslabor
+333	130.033			HH	Paläobotanik	AG Kerp						Flusssäurelabor
+334	130.034			HH	IfG	AnthropoLab						AnthropoLab
+335	130.035			HH	IfG	Kartographie						Claudia Schroer
+336	130.036			HH	IfG	AG Grabski-Kieron						Jana Werring
+337	130.037			HH	Paläobotanik	AG Kerp						Lager
+338	130.038			HH	IfG	AG Grabski-Kieron						Prof. Grabski-Kieron
+339	130.039			Projektraum	IfG	AG Grabski-Kieron						Jan Foerster
+339	130.039			Projektraum	IfG	AG Grabski-Kieron						Mathias Raabe
+340	130.040			HH	IfG	AG Grabski-Kieron						Hilfskräfte AG Grabski-Kieron
+341	130.041				IfG							Planerwerkstatt
+342	130.042			HH	IfG	Doktoranden						Laura Wenz
+342	130.042			HH	IfG	Doktoranden						Hannah Watzinger
+343	130.043			HH	IfG	Gastwissen-schaftler und Lehrbeauftragte						IfG Lehrbeauftragte
+344	130.044			Projektraum	IfG	AG Wood						Katja Keggenhoff
+345	130.045			Allg.		Kopierer						Kopierer
+346	130.046			Projektraum	IfG	AG Reuber						Karsten Lenk  
+347	130.047			Allg.								
+348	130.048			Allg.								
+349	130.049			Allg.								
+350	130.050			Allg.								
+351	130.051			Allg.								
+352	130.052			Bespr.		Besprechung						Besprechung klein
+321a	130.201			Allg.								
+322a	130.202			Allg.								
+323a	130.203			Allg.								
+331a	130.301			Allg.								
+341a	130.401			Allg.								
+342a	130.402			Allg.								
+343a	130.403			Allg.								
+351a	130.501			Allg.								
+352a	130.502			Allg.								
+353a	130.503			Allg.								
+354a	130.504			Allg.								
+355a	130.505			Allg.								
+356a	130.506			Allg.								
+401	140.001			Seminar								Seminarraum
+402	140.002			HH	BE	Erasmusberatung						Pia Eibes
+402	140.002			HH	BE	Erasmusberatung						Steffen Marziniak
+403	140.003			HH	ILÖK	AG Buttschardt						Jenny Schmidt
+403	140.003			HH	ILÖK	AG Buttschardt						Ester Dörendahl
+404	140.004			DM	ILÖK	AG Blodau						Zhiguo Yu
+404	140.004			DM	ILÖK	AG Blodau						N.N.
+405	140.005			DM	ILÖK	AG Blodau						Simona Bonaiuti
+405	140.005			DM	ILÖK	AG Blodau						N.N.
+406	140.006				GeKo	GeKo						Sekretariat
+407	140.007				GeKo	GeKo						Kerstin Hüls
+408	140.008			Bespr.	Geko							Besprechung GeKo
+409	140.009				GeKo	GeKo						Carola Bischoff
+410	140.010				GeKo	GeKo						Dr. Rudolf Grothues
+411	140.011				GeKo	GeKo						Dr. Rudolf Grothues
+412	140.012				GeKo	GeKo						Prof. Dr. Karl-Heinz Otto
+413	140.013				GeKo	GeKo						Horst Pohlmann
+414	140.014			Allg.		Lager						Lager
+415	140.015				GeKo	GeKo						Markus Wieneke
+416	140.016			Allg.		LAN-Raum						LAN-Raum
+417	140.017			Allg.		UV-Raum						UV-Raum
+418	140.018			HH	ILÖK	Sekretariat						Claudia Meyer
+419	140.019			HH	ILÖK	AG Buttschardt						Prof. Dr. Tillmann Buttschardt
+420	140.020			Allg.								
+421	140.021			HH	ILÖK	AG Buttschardt						Dr. Jan Thiele
+422	140.022			HH	ILÖK	Labor						Ulrike Berning-Mader
+422	140.022			HH	ILÖK	Labor						Madeleine Supper
+422	140.022			HH	ILÖK	Labor						Melanie Tappe
+423	140.023			HH	ILÖK	Labor						Labor ILÖK
+424	140.024			HH	ILÖK	Labor						Labor ILÖK
+425	140.025			HH	ILÖK	Labor						Labor ILÖK
+426	140.026			HH	ILÖK	Labor						Labor ILÖK
+427	140.027			HH	ILÖK	Labor						Labor ILÖK
+428	140.028			HH	ILÖK	Labor						Labor ILÖK
+429	140.029			Allg.		Teeküche						Teeküche
+430	140.030			HH	ILÖK	Labor						Labor ILÖK
+431	140.031			Allg.		Putzraum						Putzraum
+432	140.032			Allg.		UV-Raum						UV-Raum
+433	140.033			HH	ILÖK	Labor						Labor ILÖK
+434	140.034			HH	ILÖK	Labor						Labor ILÖK
+435	140.035			HH	ILÖK	Labor						Labor ILÖK
+436	140.036			HH	ILÖK	AG Blodau						Prof. Christian Blodau
+437	140.037			HH	ILÖK							Dr. Andreas Malkus
+438	140.038			HH	ILÖK	AG Blodau						Dr. Klaus-Holger Knorr
+439	140.039			HH	ILÖK	AG Blodau						Yuanqiao Wu
+440	140.040			HH	ILÖK	Labor						Labor ILÖK
+	140.041			Projektraum	ILÖK	AG Blodau						Bing Xia 
+442	140.042			HH	ILÖK	Labor						Labor ILÖK
+443	140.043			DM	ILÖK							Hilke Hollens
+444	140.044			Projektraum	ILÖK	AG Buttschardt						André Große-Stoltenberg
+444	140.044			Projektraum	ILÖK	AG Buttschardt						Jeaninne Böhmichen
+445	140.045			HH	ILÖK	Sekretariat						Ute Goerzen-Kazmierczak
+446	140.046			Allg.								
+447	140.047			DM	ILÖK							Dr. Friederike Gabel 
+448	140.048			DM	ILÖK	AG Buttschardt						Witold Arndt
+448	140.048			DM	ILÖK	AG Buttschardt						Judith Hejkal
+448	140.048			DM	ILÖK	AG Buttschardt						Philipp Keller
+449	140.049			DM	IfG							Cornelia Steinhäuser de Barba
+449	140.049			DM	IfG							Helge Conrad
+450	140.050			Allg.								
+451	140.051			Allg.								
+452	140.052			Allg.								
+453	140.053			Allg.								
+454	140.054			Allg.								
+455	140.055			Bespr.		Besprechung						Besprechung groß
+421a	140.201			Allg.								
+422a	140.202			Allg.								
+423a	140.203			Allg.								
+431a	140.301			Allg.								
+441a	140.401			Allg.								
+442a	140.402			Allg.								
+443a	140.403			Allg.								
+451a	140.501			Allg.								
+452a	140.502			Allg.								
+453a	140.503			Allg.								
+454a	140.504			Allg.								
+455a	140.505			Allg.								
+456a	140.506			Allg.								
+501	150.001			HH	ILÖK	AG Hölzel						Prof. Norbert Hölzel
+502	150.002			HH	ILÖK							Dr. Ute Hamer
+503	150.003			HH	ILÖK	AG Hölzel						PD Dr. Till Kleinebecker
+504	150.004			HH	ILÖK	AG Hölzel						Hilfskräfte AG Hölzel
+505	150.005			DM	ILÖK	AG Hölzel						Dr. Johannes Kamp
+506	150.006			HH	FB 14	Lehrevaluation						Petra Lütke
+507	150.007			HH	Dek.	Lehrevaluation						Hilfskraft Lehrevaluation
+508	150.008			HH	Dek.	FB-Verwaltung						Christiane Zens
+509	150.009			HH	Dek.	FB-Verwaltung						Jutta Krull
+510	150.010			HH	Dek.	Dekan						Prof. Dr. Kerp
+511	150.011			Bespr.		Besprechung						Besprechung klein
+512	150.012			DM	ILÖK	AG Hölzel/ AG Blodau						Sina Berger
+512	150.012			DM	ILÖK	AG Hölzel/ AG Blodau						Wiebke Münchberger
+513	150.013			Seminar								Seminarraum
+514	150.014			Allg.		Kopierer						Kopierer
+515	150.015			DM	ILÖK	AG Hölzel						Nguyen Ho 
+515	150.015			DM	ILÖK	AG Hölzel						Dr. Ondrey Mudrak
+516	150.016			Allg.		Technikraum						Technikraum
+517	150.017			Allg.		UV-Raum						UV-Raum
+518	150.018			DM	ILÖK	AG Hölzel						Wanja Mathar
+518	150.018			DM	ILÖK	AG Hölzel						Tim-Martin Wertebach
+519	150.019			DM	ILÖK	AG Hölzel						Sarah Weking
+519	150.019			DM	ILÖK	AG Hölzel						Immo Kämpf
+520	150.020			Allg.								
+521	150.021			DM	ILÖK							Kristin Gilhaus
+522	150.022			Projektraum	ILÖK	AG Hölzel						Svenja Agethen
+522	150.022			Projektraum	ILÖK	AG Hölzel						Dr. Valentin Klaus
+523	150.023			HH	ILÖK	Labor						Labor ILÖK
+524	150.024			HH	ILÖK	Labor						Labor ILÖK
+525	150.025			HH	ILÖK	Labor						Labor ILÖK
+526	150.026			HH	ILÖK	Labor						Labor ILÖK
+527	150.027			HH	ILÖK	Labor						Labor ILÖK
+528	150.028			HH	ILÖK	Labor						Labor ILÖK
+529	150.029			Allg.		Teeküche						Teeküche
+530	150.030			Allg.		Putzraum						Putzraum
+531	150.031			Allg.		UV-Raum						UV-Raum
+532	150.032			HH	ILÖK	Labor						Labor ILÖK
+533	150.033			HH	ILÖK	Labor						Labor ILÖK
+534	150.034			HH	ILÖK	Labor						Labor ILÖK
+535	150.035			HH	ILÖK	AG Klemm						Prof. Otto Klemm
+536	150.036			HH	ILÖK	AG Mattes						Prof. Hermann Mattes
+537	150.037			HH	ILÖK	AG Mattes						PD Dr. Thomas Fartmann
+538	150.038				ILÖK	Labor						Labor ILÖK
+539	150.039			Projektraum	ILÖK	AG Mattes						Franz Löffler
+539	150.039			Projektraum	ILÖK	AG Mattes						Felix Helbing
+540	150.040			HH	ILÖK	AG Mattes						Petra Dieker
+540	150.040			HH	ILÖK	AG Mattes						Anuschka Tecker
+540	150.040			HH	ILÖK	AG Mattes						Verena Spilker
+541	150.041				ILÖK	Labor						Labor ILÖK
+542	150.042			HH	ILÖK	AG Klemm						Tarek El-Madany
+543	150.043			HH	ILÖK	AG Klemm						 Julian Deventer
+544	150.044			Projektraum	ILÖK	AG Klemm						Degefie Tibebe
+545	150.045			Allg.								
+546	150.046			DM	ILÖK	AG Mattes						Fabian Borchard
+546	150.046			DM	ILÖK	AG Mattes						Thorsten Münch
+546	150.046			DM	ILÖK	AG Mattes						Steffen Kämpfer
+546	150.046			DM	ILÖK	AG Mattes						Florian Fumy
+546	150.046			DM	ILÖK	AG Mattes						Laura Farbacher
+547	150.047			DM	ILÖK	AG Mattes						Merle Streitberger
+547	150.047			DM	ILÖK	AG Mattes						Gregor Stuhldreher
+548	150.048			DM	ILÖK	AG Klemm						Elisa Fleischer
+549	150.049			Allg.								
+550	150.050			Allg.								
+551	150.051			Allg.								
+552	150.052			Allg.								
+553	150.053			Allg.								
+554	150.054			Bespr.		Besprechung						Besprechung groß
+521a	150.201			Allg.								
+522a	150.202			Allg.								
+523a	150.203			Allg.								
+531a	150.301			Allg.								
+541a	150.401			Allg.								
+542a	150.402			Allg.								
+543a	150.403			Allg.								
+551a	150.501			Allg.								
+552a	150.502			Allg.								
+553a	150.503			Allg.								
+554a	150.504			Allg.								
+555a	150.505			Allg.								
+556a	150.506			Allg.								
+601	160.001			Allg.								
+602	160.002			HH	ILÖK							
+603	160.003			HH	ILÖK							
+622	160.202			Allg.								
+631	160.301			Allg.								
+643	160.403			Allg.								
+651	160.501			Allg.								
+653	160.503			Allg.								
+654	160.504			Allg.								
+655	160.505			Allg.								
+656	160.506			Allg.								

@@ -1,0 +1,43 @@
+7SELECT DISTINCT  ?member WHERE {  <http://data.uni-muenster.de/context/cris/person/9148> <http://xmlns.com/foaf/0.1/depiction> ?member .} Order by ?name
+
+SELECT DISTINCT ?member ?name ?depict ?projectTitle WHERE {
+  	<http://data.uni-muenster.de/context/cris/organization/5425> 
+	<http://xmlns.com/foaf/0.1/member> ?member . 
+  	?member <http://xmlns.com/foaf/0.1/name> ?name . 
+  	?member <http://xmlns.com/foaf/0.1/depiction> ?depict . 
+      OPTIONAL
+            {
+              ?project pv:participant ?member.
+              ?project pv:acronym ?projectAcronym .
+              ?project pv:title ?projectTitle. 
+             } 
+} Order by ?name
+
+
+
+SELECT DISTINCT ?projectTitle WHERE {
+           
+         OPTIONAL
+            {
+              ?project pv:participant <http://data.uni-muenster.de/context/cris/person/7595>.
+              ?project pv:acronym ?projectAcronym .
+              ?project pv:title ?projectTitle
+             } 
+}
+
+SELECT DISTINCT ?courseTitle WHERE {
+        OPTIONAL
+            {
+               ?course teach:teacher <http://data.uni-muenster.de/context/cris/person/7595>.
+                    ?course teach:courseTitle ?courseTitle
+             }
+}
+
+SELECT DISTINCT ?member ?name ?depict ?roomnumber WHERE { 
+  	<http://data.uni-muenster.de/context/cris/organization/5421> <http://xmlns.com/foaf/0.1/member> ?member . 
+  	?member <http://xmlns.com/foaf/0.1/name> ?name . 
+  	?member <http://xmlns.com/foaf/0.1/depiction> ?depict . 
+  	OPTIONAL{
+  	?room <http://vocab.lodum.de/limap/hasOccupant> ?member.
+        ?room <http://vocab.lodum.de/limap/hasRoomNumber> ?roomnumber}
+	} Order by ?name
