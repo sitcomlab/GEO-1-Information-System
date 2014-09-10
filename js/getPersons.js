@@ -60,7 +60,7 @@ $('#map').addClass('ui-btn-active');
 					for ( var i = 0; i < data.length; i += 3 ){
 							if ( data[i].substring(0,1)==="0" ){
 								basement = basement + data[i] + ";" + data[i+1] + ";" + data[i+2] + ";";
-								console.log(basement);
+								//console.log(basement);
 							}
 							else if ( parseInt(data[i]) > 0 && parseInt(data[i]) < 100){
 								firstFloor = firstFloor + data[i] + ";" + data[i+1] + ";" + data[i+2] + ";";
@@ -333,7 +333,7 @@ $('#map').addClass('ui-btn-active');
 			});
 			
 			$("#floor6").click(function(){
-					createRoomList('floor6','Search for Floor 1');
+					createRoomList('floor6','Search for Floor 6');
 			});
 			
 			//does not use function createRoomList since it has a different order of used slots (allRooms[...])
