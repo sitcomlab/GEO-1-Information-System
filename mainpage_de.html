@@ -104,6 +104,12 @@
                     $('#btnReset').show();
 
             });
+			
+			$(document).ready(function(){
+				$(document).bind("contextmenu",function(e){
+				return false;
+				});
+			});
         </script>
 		<script src="js/jquery.mobile-1.4.2.js"></script>
     </head>
