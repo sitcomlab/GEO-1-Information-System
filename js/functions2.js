@@ -14,7 +14,13 @@
 */
 	
 function showNavigation(roomNumber,Name){
-			log('Navigation shown',new Date());
+			console.log(roomNumberName);
+			temp = roomNumberName.split(";");
+			roomNumber=temp[0];
+			name = temp[1];
+			affiliation = temp[2]
+			log('Click on show navigation for:' + roomNumber + "," + name + "," + affiliation,new Date());
+			//console.log(name);
 			document.getElementById("support").style.display = "none";
 			document.getElementById("textparts").innerHTML="";
 			document.getElementById("map").innerHTML="";

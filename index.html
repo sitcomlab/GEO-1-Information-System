@@ -1,0 +1,201 @@
+<!DOCTYPE html>   
+<html lang="en">   
+    <head>
+        <title>GEO 1</title>
+		<frame src="verweise3.htm" name="Navigation" scrolling="no">	<!-- disables the ability to scroll -->
+        <meta name="viewport" content="width=1024" />
+        <meta charset="utf-8">   
+
+      
+        <link rel="stylesheet" type="text/css" href="css/system2.css">
+        <link type="text/css" rel="stylesheet" href="css/layout-default-latest.css" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="js/functions2.js"  type="text/javascript"></script>
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <script src="js/getPersons.js"></script>
+		<script src="js/sort.js"></script>
+		<script src="js/log.js"></script>		
+        <script type="text/javascript" src="js/jquery.layout-latest.js"></script>
+        <script language="JavaScript">
+
+            //After 120 seconds of inactivity a cover appears that darkens the screen. Includes the demand for touching the monitor. See last div.
+            var VergangeneZeit = 0; // in Sekunden
+             
+             //InaktivitaetMessen();
+             
+             function InaktivitaetZuruecksetzen()
+             {
+             VergangeneZeit = 0;
+             return;
+             }
+
+            function toggleLiveResizing() {
+                $.each($.layout.config.borderPanes, function(i, pane) {
+                    var o = myLayout.options[ pane ];
+                    o.livePaneResizing = !o.livePaneResizing;
+                });
+            }
+            ;
+
+            function toggleStateManagement(skipAlert, mode) {
+                if (!$.layout.plugins.stateManagement)
+                    return;
+
+                var options = myLayout.options.stateManagement
+                        , enabled = options.enabled // current setting
+                        ;
+                if ($.type(mode) === "boolean") {
+                    if (enabled === mode)
+                        return; // already correct
+                    enabled = options.enabled = mode
+                }
+                else
+                    enabled = options.enabled = !enabled; // toggle option
+
+                if (!enabled) { // if disabling state management...
+                    myLayout.deleteCookie(); // ...clear cookie so will NOT be found on next refresh
+                    if (!skipAlert)
+                        alert('This layout will reload as the options specify \nwhen the page is refreshed.');
+                }
+                else if (!skipAlert)
+                    alert('This layout will save & restore its last state \nwhen the page is refreshed.');
+
+                // update text on button
+                var $Btn = $('#btnToggleState'), text = $Btn.html();
+                if (enabled)
+                    $Btn.html(text.replace(/Enable/i, "Disable"));
+                else
+                    $Btn.html(text.replace(/Disable/i, "Enable"));
+            }
+            ;
+
+            var myLayout;
+
+            $(document).ready(function() {
+
+                // this layout could be created with NO OPTIONS - but showing some here just as a sample...
+                // myLayout = $('body').layout(); -- syntax with No Options
+
+                myLayout = $('body').layout({
+                    //	reference only - these options are NOT required because 'true' is the default
+                    closable: false	// pane can open & close
+                 
+
+
+                            //	some pane-size settings
+                    , west__size: 0.45
+                    , center__size: 0.45
+                    , east__size: 0.10
+
+                    , showDebugMessages: true // log and/or display messages from debugging & testing code
+                });
+
+                // if there is no state-cookie, then DISABLE state management initially
+                var cookieExists = !$.isEmptyObject(myLayout.readCookie());
+                if (!cookieExists)
+                    toggleStateManagement(true, false);
+
+                myLayout
+                        // add event to the 'Close' button in the East pane dynamically...
+
+                // 'Reset State' button requires updated functionality in rc29.15+
+                if ($.layout.revision && $.layout.revision >= 0.032915)
+                    $('#btnReset').show();
+
+            });
+        </script>
+		<script src="js/jquery.mobile-1.4.2.js"></script>
+    </head>
+    <body onLoad="" onMouseDown="InaktivitaetZuruecksetzen();" id = "english"> 
+		<div class="ui-layout-west" id="north" style = "overflow-y:hidden;">	
+			<div id = "support">
+				<p id = "title">GEO 1 Information System</p>
+				<p id = "subtitle_en">For information and navigation instructions, please touch the screen.</p>
+			</div>
+            <div data-role="tabs">
+				<div class = "maintenance_tabs" data-role="header" data-position="fixed" style="position:absolute;bottom:100px;" >
+
+				</div>	
+					<div id="myTabContent" class="tab-content">							
+							<div id = "map"></div>						
+							<div id = "textparts" ></div>	
+							<div id = "photo" ></div>		
+					</div> 				
+			</div>
+		</div>
+        <!-- allowOverflow auto-attached by option: west__showOverflowOnHover = true -->
+        <div class="ui-layout-center" id ="background">
+		<div>
+            <div data-role="tabs" id="">
+			<div data-role="navbar" >
+                <ul>
+                    <li style="width:33%;"><a class="ui-btn-active ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-user" href="#persons" onclick="">People</a></li>
+                    <li style="width:33%;"><a href="#rooms" data-ajax="false" onclick="">Rooms</a></li>
+                    <li style="width:34%;"><a href="#institutes" data-ajax="false" onclick="">Institutes</a></li>
+                </ul>
+			</div>
+					<div id="persons" class="ui-body-d ui-content">                   
+                        <div id="allChoosings">					
+                            <button id="A" data-mini="true" data-inline="true" class="ui-btn ui-btn-inline" class="show-page-loading-msg" style='margin-right: 30px' >A-E</a>
+                            <button id="F" class="ui-btn ui-btn-inline" style='margin-right: 30px'>F-J</a>
+                            <button id="K" class="ui-btn ui-btn-inline" style='margin-right: 30px'>K-O</a>
+                            <button id="P" class="ui-btn ui-btn-inline" style='margin-right: 30px'>P-T</a>
+                            <button id="U" class="ui-btn ui-btn-inline" style='margin-right: 30px'>U-Z</a>
+                            <button id="AE" class="ui-btn ui-btn-inline" style='margin-right: 30px'>Ä-Ö-Ü</a>	
+                        </div>
+                        <div id ="stafflist" style="height: 330px;position:relative;">
+						<div id="div2" style="max-height:100%;overflow:auto;">
+							<div style="margin-right:25%; margin-left:10%;" data-role="collapsibleset" data-content-theme="a" data-iconpos="right" id="people" style="height: 370px;position:relative;">								
+							</div>
+							</div>
+						</div>			
+					</div>
+                    <div id="institutes">
+                        <div id="allInstitutes">
+							<button id="geocomm" class="ui-btn ui-btn-inline" style='margin-right: 30px'>Geographic Commission</button>						
+							<button id="dgeogr" class="ui-btn ui-btn-inline" style='margin-right: 30px'>Institute of Didactics of Geography</button>
+                            <button id="geogr" class="ui-btn ui-btn-inline" style='margin-right: 30px'>Institute for Geography</button>                 							
+							<button id="ifgi" class="ui-btn ui-btn-inline" style='margin-right: 30px'>Institute for Geoinformatics</button>         
+							<button id="loek" class="ui-btn ui-btn-inline" style='margin-right: 30px'>Institute for Landscape Ecology</button>									
+							<button id="geopal" class="ui-btn ui-btn-inline" style='margin-right: 30px'>Institute and Museum for Geology and Paleontology</button>
+							<button id="misc" class="ui-btn ui-btn-inline" style='margin-right: 30px'>Miscellaneous</button>							
+						</div>		
+                     <div id ="institutelist" style="height: 280px;position:relative;">
+						<div id="div2" style="max-height:100%;overflow:auto;">
+							<div style="margin-right:20%; margin-left:10%;" data-role="collapsibleset" data-content-theme="a" data-iconpos="right" id="instituteList" style="height: 370px;position:relative;"></div>
+						</div>
+						</div>				
+                    </div>
+                    <div id="rooms">
+                        <div id="allRooms">
+                            <button  id ="floor0" class="ui-btn ui-btn-inline" href="#" style='margin-right: 25px'>Rooms 0.01 - 0.99</a>
+                            <button  id ="floor1" class="ui-btn ui-btn-inline" href="#" style='margin-right: 25px'>Rooms 1 - 99</a>
+                            <button  id ="floor2" class="ui-btn ui-btn-inline" href="#" style='margin-right: 25px'>Rooms 100 - 199</a>
+							<button  id ="floor3" class="ui-btn ui-btn-inline" href="#" style='margin-right: 25px'>Rooms 200 - 299</a>
+							<button  id ="floor4" class="ui-btn ui-btn-inline" href="#" style='margin-right: 25px'>Rooms 300 - 399</a>
+							<button  id ="floor5" class="ui-btn ui-btn-inline" href="#" style='margin-right: 25px'>Rooms 400 - 499</a>
+							<button  id ="floor6" class="ui-btn ui-btn-inline" href="#" style='margin-right: 25px'>Rooms 500 - 599</a>
+							<button  id ="special" class="ui-btn ui-btn-inline" href="#" style='margin-right: 25px'>Special</a>							
+                        </div>
+						<div id ="roomlist" style="height: 350px;position:relative;">
+							<div id="div2" style="max-height:100%;overflow:auto;">
+								<div style="margin-right:25%; margin-left:10%;" data-role="collapsibleset" data-content-theme="a" data-iconpos="right" id="room">								
+								</div>
+							</div>	
+						</div>
+                    </div>
+				</div>
+           </div>
+		</div>
+        <div class="ui-layout-east" >
+           <div id = "buttonHome" class="ui-block-a"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-home" href="mainpage.html" onClick="window.location.reload()">Home</button></div>
+		   <!--<div id = "buttonSupport" class="ui-block-a"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-info" >Support</button></div>-->
+            <div>
+                <a href=""><img src="Images/germany.png" id="flag" style="position: absolute; top:25%;left:5%" onclick="onclick=alert('Coming soon')"/></a> <!--changeLanguage('German') http://visualwerder.files.wordpress.com/2011/10/07_werderinternazionale.png -->
+                <a href=""><img src="Images/britain.png" id="flag" style="position: absolute; top:40%;left:5%" onclick=""/></a> 
+                <a href=""><img src="Images/portugal.png" id="flag" style="position: absolute; top:55%;left:5%" onclick="onclick=alert('Coming soon')"/></a>
+            </div>
+        </div>
+    </body>  
+</html>  
