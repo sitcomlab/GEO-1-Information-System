@@ -106,6 +106,7 @@ $('#map').addClass('ui-btn-active');
 			{	
 			},
 				function(data){
+				//console.log(data)
 					var blocks = data.split(";");
 					for ( var i = 0; i < blocks.length-3; i+=4 ){
 						localStorage[""+blocks[i].trim()+"_en"] = blocks[i+2].trim();

@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Logged Data</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+</head>
+<body>
+ 
+<div>
+
+</div>  
+
+<script>
+		$.post(
+			"php/processLogData.php?",
+			{	
+			},
+				function(data){
+					var dataset = JSON.parse(data);
+					//calculateDistribution(dataset);
+					//changeVisualization(dataset);
+					console.log(timeNeeded(startedWith(dataset).mapLogs));
+					//changeLanguage(dataset);
+					//timeNeeded(dataset);
+					/*
+					console.log(dataset[0]);
+					console.log(dataset[1]);
+					console.log(dataset[0].date===dataset[1].date)
+					*/
+					//console.log(searchCategory(dataset));
+					//console.log(startedWith(dataset));
+				}
+		);
+		
+		function timeNeeded(dataset){
+			var times = new Array();
+			var average = 0;
+			for (var i = 0; i < dataset.length; i++ ){
+				//var log = dataset[i].log;
+				var log = dataset[i];
+				var tempInteractions = log.split(";");
+				var beginning = tempInteractions[1].split(",")[0];
+				var end = tempInteractions[tempInteractions.length-2].split(",")[0];
+				var dateBeginning = new Date(beginning);
+				var dateEnd = new Date(end);
+				var span = (dateEnd-dateBeginning)/1000;
+				times.push(span);
+				console.log(span);
+			};
+
+			var sum=0;
+			for (var i = 0; i < times.length; i++){
+				var sum = sum + times[i];
+			}
+			
+			average = sum/times.length;
+
+			var variance = 0;
+			for (var i = 0; i < times.length; i++){	
+				var temp = (times[i]-average);
+				variance += temp*temp;
+			}
+			variance = variance / (times.length-1);
+			console.log(average);
+			console.log(Math.sqrt(variance));
+			
+			//return average;
+
+		}		
+		
+		function searchCategory(dataset){
+			var searchForPeople = 0;
+			var searchForInstitutes = 0;
+			var searchForRooms = 0;
+			for (var i = 0; i < dataset.length-1; i++ ){
+				var log = dataset[i].log;
+				if (log.indexOf("Search for people") > -1 ){
+					searchForPeople++;
+				}
+				if (log.indexOf("Search for institutes") > -1 ){
+					searchForInstitutes++;
+				}
+				if (log.indexOf("Search for rooms") > -1 ){
+					searchForRooms++;
+				}
+			}
+			var result = {searchedPeople: searchForPeople, searchedInstitutes: searchForInstitutes, searchedRooms: searchForRooms, nothin: nothing};
+			return result;	
+		}
+		
+		function calculateDistribution(dataset){
+			var dateArray = new Array();
+			var amount = 1;
+			for (var i = 0; i < dataset.length-1; i++ ){
+				if (dataset[i].date === dataset[i+1].date){
+					amount++	
+				}
+				else{
+					console.log(dataset[i].date);	
+					console.log(amount);
+					amount = 1;
+				}
+			}
+		}
+		
+		function changeVisualization(dataset){
+			var changeToMap = 0;
+			var changeToFoto = 0;
+			var noChange = 0;
+			for (var i = 0; i < dataset.length-1; i++ ){
+				var log = dataset[i].log;
+				if (log.indexOf("Switch to Photo") > -1 ){
+					changeToMap++;
+				}
+				else if (log.indexOf("Switch to Map") > -1 ){
+					changeToFoto++;
+				}
+				else{
+					noChange++;
+					console.log(dataset[i].log);
+				}
+			}
+			console.log(changeToMap);
+			console.log(changeToFoto);
+			console.log(noChange);
+		}
+		
+		function startedWith(dataset){
+			var startWithMap = 0;
+			var startWithPhoto = 0;
+			var mapArray = new Array();
+			var photoArray = new Array()
+			for (var i = 0; i < dataset.length-1; i++ ){
+				var log = dataset[i].log;
+					start = log.split(";")[0].split(",")[1];
+				if (start.indexOf("starts with map") > -1 ){
+					startWithMap++;
+					mapArray.push(log);
+				}
+				if (start.indexOf("starts with photo") > -1 ){
+					startWithPhoto++;
+					photoArray.push(log);
+				}
+			}
+			var result = {startedWithMap:startWithMap, startedWithPhoto:startWithPhoto, mapLogs:mapArray, photoLogs:photoArray};
+			return result;
+		}
+		
+		function changeLanguage(dataset){
+			var choseGerman = 0;
+			var choseEnglish = 0;
+			var chosePortuguese = 0;
+			var noChange = 0;
+			for (var i = 0; i < dataset.length-1; i++ ){
+				var log = dataset[i].log;
+				if (log.indexOf("Chose German_language") > -1 ){
+					choseGerman++;
+				}
+				if (log.indexOf("Chose English_language") > -1 ){
+					choseEnglish++;
+				}
+				if (log.indexOf("Chose Portuguese_language") > -1 ){
+					chosePortuguese++;
+				}
+			}
+			console.log(choseGerman);
+			console.log(choseEnglish);
+			console.log(chosePortuguese);	
+		}
+		
+
+		
+</script>
+ 
+ 
+</body>
+</html>

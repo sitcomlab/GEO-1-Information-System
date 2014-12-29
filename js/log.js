@@ -2,17 +2,21 @@ function log(action, timestamp){
 	var temp = localStorage.getItem("logActions");
 		temp = temp + timestamp + "," + action + ";";
 	localStorage["logActions"] = temp;	
-	console.log(temp);
+	//console.log(temp);
 }
 
 function saveLog(){
-	$.post(
-			"php/logData.php?",
-			{	
-			Actions:localStorage.getItem("logActions")
-			},
-			function(data){
-				window.location=("/mainpage.html");
-			}
-		);				
+	var logDataSet = localStorage.getItem("logActions");
+	if (logDataSet.split(";").length > 2){
+		$.post(
+				"php/logData.php?",
+				{		
+				Actions:logDataSet
+				},
+				function(data){
+					localStorage["logActions"] = "";
+					window.location=("/mainpage.html");					
+				}
+			);	
+	}			
 }

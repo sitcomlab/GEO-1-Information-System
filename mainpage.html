@@ -15,8 +15,8 @@
         <script src="http://code.jquery.com/jquery.js"></script>
         <script src="js/getPersons.js"></script>
 		<script src="js/sort.js"></script> 
-		<script src="js/log.js"></script>
-        <script type="text/javascript" src="js/jquery.layout-latest.js"></script>
+        <script src="js/log.js"></script>
+		<script type="text/javascript" src="js/jquery.layout-latest.js"></script>
         <script language="JavaScript">
 
             //After 120 seconds of inactivity a cover appears that darkens the screen. Includes the demand for touching the monitor. See last div.
@@ -104,7 +104,7 @@
                     $('#btnReset').show();
 
             });
-	
+			
 			$(document).ready(function(){
 				$(document).bind("contextmenu",function(e){
 				return false;
@@ -113,11 +113,11 @@
         </script>
 		<script src="js/jquery.mobile-1.4.2.js"></script>
     </head>
-    <body onLoad="InaktivitaetMessen();" onMouseDown="InaktivitaetZuruecksetzen();" id = "english"> 
+    <body onLoad="InaktivitaetMessen();" onMouseDown="InaktivitaetZuruecksetzen();" id = "german"> 
 		<div class="ui-layout-north" id="north" style = "overflow-y:hidden;">	
 			<div id = "support">
-				<p id = "title">GEO 1 Information System</p>
-				<p id = "subtitle_en">For information and navigation instructions, please touch the screen.</p>
+				<p id = "title">GEO 1 Informationssystem</p>
+				<p id = "subtitle_de">Wer? Was? Wo? - Wegweiser für das GEO1 Gebäude.</p>
 			</div>
             <div data-role="tabs">
 				<div class = "maintenance_tabs" data-role="footer" data-position="fixed" id = "tabs">
@@ -136,9 +136,9 @@
             <div data-role="tabs">
 			<div data-role="navbar" >
                 <ul>
-                    <li style="width:33%;"><a class="ui-btn-active ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-user" href="#persons" onclick="log('Search for people',new Date())">People</a></li>
-                    <li style="width:33%;"><a href="#rooms" data-ajax="false" onclick="log('Search for rooms',new Date())">Rooms</a></li>
-                    <li style="width:34%;"><a href="#institutes" data-ajax="false" onclick="log('Search for institutes',new Date())">Institutes</a></li>
+                    <li style="width:33%;"><a class="ui-btn-active ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-user" href="#persons" onclick="log('Search for people',new Date())">Mitarbeiter</a></li>
+                    <li style="width:33%;"><a href="#rooms" data-ajax="false" onclick="log('Search for rooms',new Date())">Räume</a></li>
+                    <li style="width:34%;"><a href="#institutes" data-ajax="false" onclick="log('Search for institutes',new Date())">Institute</a></li>
                 </ul>
 			</div>
 					<div id="persons" class="ui-body-d ui-content">                   
@@ -159,13 +159,13 @@
 					</div>
                     <div id="institutes">
                         <div id="allInstitutes">
-							<button id="geocomm" class="ui-btn ui-btn-inline" style='margin-right: 30px'>Geographic Commission</button>						
-							<button id="dgeogr" class="ui-btn ui-btn-inline" style='margin-right: 30px'>Institute of Didactics of Geography</button>
-                            <button id="geogr" class="ui-btn ui-btn-inline" style='margin-right: 30px'>Institute for Geography</button>                 							
-							<button id="ifgi" class="ui-btn ui-btn-inline" style='margin-right: 30px'>Institute for Geoinformatics</button>         
-							<button id="loek" class="ui-btn ui-btn-inline" style='margin-right: 30px'>Institute for Landscape Ecology</button>									
-							<button id="geopal" class="ui-btn ui-btn-inline" style='margin-right: 30px'>Institute and Museum for Geology and Paleontology</button>
-							<button id="misc" class="ui-btn ui-btn-inline" style='margin-right: 30px'>Miscellaneous</button>							
+							<button id="geocomm" class="ui-btn ui-btn-inline" style='margin-right: 30px'>Geographische Kommission</button>
+							<button id="dgeogr" class="ui-btn ui-btn-inline" style='margin-right: 30px'>Institut für Didaktik der Geographie</button>	
+                            <button id="geogr" class="ui-btn ui-btn-inline" style='margin-right: 30px'>Institut für Geographie</button>                          
+							<button id="ifgi" class="ui-btn ui-btn-inline" style='margin-right: 30px'>Institut für Geoinformatik</button>
+							<button id="loek" class="ui-btn ui-btn-inline" style='margin-right: 30px'>Institut für Landschaftsökologie</button>											
+							<button id="geopal" class="ui-btn ui-btn-inline" style='margin-right: 30px'>Institut für Paläontologie</button>
+							<button id="misc" class="ui-btn ui-btn-inline" style='margin-right: 30px'>Diverses</button>							
 						</div>		
                      <div id ="institutelist" style="height: 280px;position:relative;">
 						<div id="div2" style="max-height:100%;overflow:auto;">
@@ -175,14 +175,14 @@
                     </div>
                     <div id="rooms">
                         <div id="allRooms">
-                            <button  id ="floor0" class="ui-btn ui-btn-inline" href="#" style='margin-right: 25px'>Rooms 0.01 - 0.99</a>
-                            <button  id ="floor1" class="ui-btn ui-btn-inline" href="#" style='margin-right: 25px'>Rooms 1 - 99</a>
-                            <button  id ="floor2" class="ui-btn ui-btn-inline" href="#" style='margin-right: 25px'>Rooms 100 - 199</a>
-							<button  id ="floor3" class="ui-btn ui-btn-inline" href="#" style='margin-right: 25px'>Rooms 200 - 299</a>
-							<button  id ="floor4" class="ui-btn ui-btn-inline" href="#" style='margin-right: 25px'>Rooms 300 - 399</a>
-							<button  id ="floor5" class="ui-btn ui-btn-inline" href="#" style='margin-right: 25px'>Rooms 400 - 499</a>
-							<button  id ="floor6" class="ui-btn ui-btn-inline" href="#" style='margin-right: 25px'>Rooms 500 - 599</a>
-							<button  id ="special" class="ui-btn ui-btn-inline" href="#" style='margin-right: 25px'>Special</a>							
+                            <button  id ="floor0" class="ui-btn ui-btn-inline" href="#" style='margin-right: 25px'>Raum 0.01 - 0.99</a>
+                            <button  id ="floor1" class="ui-btn ui-btn-inline" href="#" style='margin-right: 25px'>Raum 1 - 99</a>
+                            <button  id ="floor2" class="ui-btn ui-btn-inline" href="#" style='margin-right: 25px'>Raum 100 - 199</a>
+							<button  id ="floor3" class="ui-btn ui-btn-inline" href="#" style='margin-right: 25px'>Raum 200 - 299</a>
+							<button  id ="floor4" class="ui-btn ui-btn-inline" href="#" style='margin-right: 25px'>Raum 300 - 399</a>
+							<button  id ="floor5" class="ui-btn ui-btn-inline" href="#" style='margin-right: 25px'>Raum 400 - 499</a>
+							<button  id ="floor6" class="ui-btn ui-btn-inline" href="#" style='margin-right: 25px'>Raum 500 - 599</a>
+							<button  id ="special" class="ui-btn ui-btn-inline" href="#" style='margin-right: 25px'>Spezielle Räume</a>							
                         </div>
 						<div id ="roomlist" style="height: 350px;position:relative;">
 							<div id="div2" style="max-height:100%;overflow:auto;">
@@ -195,11 +195,11 @@
            </div>
 		</div>
         <div class="ui-layout-center" >
-           <div id = "buttonHome" class="ui-block-a"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-home" href="mainpage.html" onClick="loadWindow()">Home</button></div>
+           <div id = "buttonHome" class="ui-block-a"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-home" href="mainpage.html" onClick="window.location.reload()">Home</button></div>
 		   <!--<div id = "buttonSupport" class="ui-block-a"><button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-info" >Support</button></div>-->
             <div>
-                <a href=""><img src="Images/germany.png" id="flag" style="position: absolute; top:10%;left:40%" onclick="changeLanguage('German')"/></a> <!-- http://visualwerder.files.wordpress.com/2011/10/07_werderinternazionale.png -->
-                <a href=""><img src="Images/britain.png" id="flag" style="position: absolute; top:10%;left:60%" onclick=""/></a> 
+                <a href=""><img src="Images/germany.png" id="flag" style="position: absolute; top:10%;left:40%" onclick=""/></a> <!-- http://visualwerder.files.wordpress.com/2011/10/07_werderinternazionale.png -->
+                <a href=""><img src="Images/britain.png" id="flag" style="position: absolute; top:10%;left:60%" onclick="changeLanguage('English')"/></a> 
                 <a href=""><img src="Images/portugal.png" id="flag" style="position: absolute; top:10%;left:80%" onclick="changeLanguage('Portuguese')"/></a>
             </div>
         </div>

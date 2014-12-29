@@ -5,15 +5,17 @@ function InaktivitaetMessen()
 	if (VergangeneZeit > 150) {
 		$(function() {
 				if (localStorage.getItem("logActions") != "") {
-					console.log(localStorage.getItem("logActions"));
 					saveLog();
-					localStorage["logActions"] = "";
-				}	
+					VergangeneZeit = 0;
+				}else{
+					VergangeneZeit = 0;
+				}
 		});
 	}
 }
 	
 function showNavigation(roomNumber,Name){
+			//console.log(roomNumber);
 			log('Click on show navigation',new Date());
 			document.getElementById("support").style.display = "none";
 			document.getElementById("textparts").innerHTML="";
@@ -146,6 +148,7 @@ function showNavigation(roomNumber,Name){
 			document.getElementById("photo").appendChild(photoImage);
 			
 			var nameTagContent;
+			//console.log(document.body.id);
 				if (document.body.id === 'english'){
 					nameTagContent = localStorage.getItem(""+roomNumber+"_en");
 				}
@@ -156,6 +159,7 @@ function showNavigation(roomNumber,Name){
 					nameTagContent = localStorage.getItem(""+roomNumber+"_por");
 				}
 					//console.log(localStorage.getItem(""+roomNumber+"_en"));
+					
 					var descriptionPart = nameTagContent.split(",");
 				for ( var i = 0; i < descriptionPart.length; i++){
 						var text = 	document.createElement("p");
@@ -194,7 +198,7 @@ function mapClick(){
 function changeLanguage(language){
 	switch(language){
 		case "German":
-			window.location=("/mainpage_de.html");
+			window.location=("/mainpage.html");
 			log('Chose German_language',new Date());
 			break;
 		case "Portuguese":
@@ -202,7 +206,7 @@ function changeLanguage(language){
 			log('Chose Portuguese_language',new Date());
 			break;
 		case "English":
-			window.location=("/mainpage.html");
+			window.location=("/mainpage_en.html");
 			log('Chose English_language',new Date());	
 			break;
 		default:window.location=("/mainpage.html");		
