@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Delete staff</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+</head>
+<body>
+ 
+<div class="ui-widget">
+	<p>Type a letter and then choose a name of the list. Only those names can be deleted.</p>
+	<label for="name">Delete staff member: </label>
+	<input id="name"></br>
+	<button onclick="deletePerson();">Delete</button><p id = "deleted"></p></p></br></br></br>
+	<p><i>First Name</i> and <i>Last Name</i> have to start with a capital letter. <i>Room number</i> has to be numeric, e.g. <i>500</i>, 
+	<br></br>rooms in the <b>basement floor</b> have to be separated by a point, e.g. <i>0.01</i> for Room 01</p>
+	<label for="firstName">Add staff member: First Name </label>
+	<input id="firstName"></br>
+	<label for="lastName">Last Name</label>
+	<input id="lastName"></br>
+	<label for="room">Room: </label>
+	<input id="room"></br>
+	<label for="aff">Affiliation: </label>
+	<select id = "aff">
+		<option value="Institute for Didactics of Geography">Institute for Didactics of Geography</option>
+		<option value="Institute for Geoinformatics">Institute for Geoinformatics</option>
+		<option value="Common section">Common Section</option>
+		<option value="Fossil botany">Fossil botany</option>
+		<option value="Institute for Landscape Ecology">Institute for Landscape Ecology</option>
+		<option value="Geographic commission">Geographic commission</option>
+		<option value="Institute for Geography">Institute for Geography</option>
+		<option value="Miscellaneous">Miscellaneous</option>
+		<option value="Facility Management">Facility Management</option>
+		<option value="Library">Library</option>
+		<option value="Dean">Dean</option>
+		<option value="IVV Geosciences">IVV Geosciences</option>		
+	</select></br>
+  <button onclick="addPerson();">Add</button>
+  <p id = "added"></p>
+</div>  
+
+<script>
+	var allNames;
+  	$.post(
+			"php/processPersons.php?",
+		{	
+		},
+			function(data){
+				allNames = data;
+				data = data.split(";");
+				  $(function() {
+						$( "#name" ).autocomplete({
+						source: data
+					});
+				});
+			}			
+		);
+
+	function deletePerson(){
+		if (checkPersons(document.getElementById("name").value.trim()) && document.getElementById("name").value.trim()!=''){
+				$.post(
+						"php/deleteStaff.php?",
+					{	
+					Name: document.getElementById("name").value.trim()
+					},
+					function(data){
+						console.log(data);
+						location.reload();
+						//document.getElementById("deleted").innerHTML= "Staff deleted";
+						}			
+					);
+				
+		}
+		else{
+			alert('Person does not exist or field is empty');
+		}	
+	}	
+	
+	function addPerson(){
+		if (!checkPersons(document.getElementById("lastName").value.trim()+','+document.getElementById("firstName").value.trim())){
+			console.log(document.getElementById("firstName").value.trim()+document.getElementById("lastName").value.trim()+
+						document.getElementById("room").value.trim()+document.getElementById("aff").value.trim());
+			$.post(
+				"php/addStaff.php?",
+				{	
+				FirstName: document.getElementById("firstName").value.trim(),
+				LastName: document.getElementById("lastName").value.trim(),
+				Room: document.getElementById("room").value.trim(),
+				Affiliation: document.getElementById("aff").value.trim()
+				},
+				function(data){
+					console.log(data);
+					location.reload();
+					//document.getElementById("added").innerHTML= "Staff added";	
+				}			
+			);	
+		}	
+		else{
+			alert("Staff already available")
+		}
+	}
+	
+	function checkPersons(name){
+		var staff = allNames.split(';');
+		var found = false
+		for (var i = 0; i < staff.length-2; i+=3){
+			if (staff[i] === name){
+				found = true;
+			}
+		}
+		return found;
+	}
+</script>
+ 
+ 
+</body>
+</html>

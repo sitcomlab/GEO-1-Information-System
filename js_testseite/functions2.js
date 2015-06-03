@@ -1,4 +1,4 @@
-/*function InaktivitaetMessen()
+function InaktivitaetMessen()
 {
 	VergangeneZeit = VergangeneZeit + 1;
 	window.setTimeout("InaktivitaetMessen()", 1000);
@@ -11,16 +11,9 @@
 		});
 	}
 }
-*/
 	
-function showNavigation(roomNumberName){
-			console.log(roomNumberName);
-			temp = roomNumberName.split(";");
-			roomNumber=temp[0];
-			name = temp[1];
-			affiliation = temp[2]
-			log('Click on show navigation for:' + roomNumber + "," + name + "," + affiliation,new Date());
-			//console.log(name);
+function showNavigation(roomNumber,Name){
+			log('Navigation shown',new Date());
 			document.getElementById("support").style.display = "none";
 			document.getElementById("textparts").innerHTML="";
 			document.getElementById("map").innerHTML="";
@@ -136,34 +129,17 @@ function mapClick(){
 	log('Switch to Map',new Date());
 }
 
-function showSupport(){
-			document.getElementById("mapPhotoTab").style.display = "none";
-			document.getElementById("map").innerHTML="";
-			document.getElementById("photo").innerHTML="";
-			document.getElementById("nameContent").innerHTML="";
-			document.getElementById("support").style.display = "block";
-	}
-	
-function photoClick(){
-	document.getElementById("textparts").style="none";
-	log('Switch to Photo',new Date());
-}
-
-function mapClick(){
-	document.getElementById("textparts").style="block";
-	log('Switch to Map',new Date());
-}
-
-function changeLanguage(language){
-	switch(language){
-		case "German":
-			window.location=("mainpage2_de.html");
-			//log('Chose German_language',new Date());
-			break;
-		case "Portuguese":
-			//window.location=("/SystemNeu/mainpage_po");
-			//log('Chose Portuguese_language',new Date());
-	}
+function saveLog(){
+	$.post(
+			"php/logData.php?",
+			{	
+			Actions:localStorage.getItem("logActions")
+			},
+			function(data){
+				console.log(data);
+			}
+		);
+				
 }
 	
 $("#photoTab").click(function(){

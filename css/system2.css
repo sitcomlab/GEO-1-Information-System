@@ -132,6 +132,25 @@ display:none;
 
 }
 
+.ui-layout-east, .ui-layout-pane, .ui-layout-pane-east, .ui-layout-center, .ui-layout-pane-center, .ui-layout-west, .ui-layout-pane-west{
+
+    overflow:hidden !important;
+}
+.ui-page{
+    min-height:1360px !important;
+    
+    overflow:hidden !important;
+}
+
+body{
+ min-height:1360px !important;
+    overflow:hidden !important;
+}
+
+html{
+ overflow:hidden !important;
+}
+
 #navbarSupport{
 	font-size:40px; 
 	position:absolute; 

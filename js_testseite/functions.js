@@ -1,26 +1,21 @@
-/*function InaktivitaetMessen()
+function InaktivitaetMessen()
 {
 	VergangeneZeit = VergangeneZeit + 1;
 	window.setTimeout("InaktivitaetMessen()", 1000);
 	if (VergangeneZeit > 90) {
 		$(function() {
 				if (localStorage.getItem("logActions") != "") {
+					console.log(localStorage.getItem("logActions"));
 					saveLog();
 					localStorage["logActions"] = "";
 				}	
 		});
 	}
 }
-*/
 	
-function showNavigation(roomNumberName){
-			console.log(roomNumberName);
-			temp = roomNumberName.split(";");
-			roomNumber=temp[0];
-			name = temp[1];
-			affiliation = temp[2]
-			log('Click on show navigation for:' + roomNumber + "," + name + "," + affiliation,new Date());
-			//console.log(name);
+function showNavigation(roomNumber,Name){
+			log('Click on show navigation',new Date());
+
 			document.getElementById("support").style.display = "none";
 			document.getElementById("textparts").innerHTML="";
 			document.getElementById("map").innerHTML="";
@@ -118,31 +113,6 @@ function showSupport(){
 			document.getElementById("nameContent").innerHTML="";
 			document.getElementById("support").style.display = "block";
 	}
-
-localStorage["logActions"] = "";	
-function log(action, timestamp){
-	var temp = localStorage.getItem("logActions");
-		temp = temp + timestamp + "," + action + ";";
-	localStorage["logActions"] = temp;	
-}
-
-function photoClick(){
-	document.getElementById("textparts").style="none";
-	log('Switch to Photo',new Date());
-}
-
-function mapClick(){
-	document.getElementById("textparts").style="block";
-	log('Switch to Map',new Date());
-}
-
-function showSupport(){
-			document.getElementById("mapPhotoTab").style.display = "none";
-			document.getElementById("map").innerHTML="";
-			document.getElementById("photo").innerHTML="";
-			document.getElementById("nameContent").innerHTML="";
-			document.getElementById("support").style.display = "block";
-	}
 	
 function photoClick(){
 	document.getElementById("textparts").style="none";
@@ -157,16 +127,16 @@ function mapClick(){
 function changeLanguage(language){
 	switch(language){
 		case "German":
-			window.location=("mainpage2_de.html");
-			//log('Chose German_language',new Date());
+			window.location=("/SystemNeu/mainpage_de.html");
+			log('Chose German_language',new Date());
 			break;
 		case "Portuguese":
-			//window.location=("/SystemNeu/mainpage_po");
-			//log('Chose Portuguese_language',new Date());
+			window.location=("/SystemNeu/mainpage_po");
+			log('Chose Portuguese_language',new Date());
 	}
 }
 	
 $("#photoTab").click(function(){
 	document.getElementById("textparts").innerHTML="";
-	console.log("done");
 		});	
+	
