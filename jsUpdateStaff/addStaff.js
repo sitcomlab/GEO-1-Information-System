@@ -1,4 +1,3 @@
-	
 	function checkContent(){
 		fn = $('#firstname').val().trim();
 		sn = $('#secondname').val().trim();
@@ -62,7 +61,7 @@
 				Affiliation: aff.trim()
 				},
 				function(data){
-					alert("Added " + sn + "," + fs + " successfully.")
+					alert("Added " + sn + "," + fs + " successfully.");
 					getStaff();	
 					clearForm();
 				}			

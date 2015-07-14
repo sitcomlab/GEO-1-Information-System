@@ -1,3 +1,5 @@
+	var selectedItem;
+	
 	function generateUpdateList(){
 		$( ".updateautocomplete" ).on( "listviewbeforefilter", function ( e, data ) {        
 			var $ul = $(this);                        // $ul refers to the shell unordered list under the input box
@@ -20,7 +22,7 @@
 		});		
 		// click to select value of auto-complete
 		$( document).on( "click", ".updateautocomplete li", function() {      
-		  var selectedItem = $(this).html();
+		  selectedItem = $(this).html();
 		  var firstName = selectedItem.split(",")[1];
 		  var secondName = selectedItem.split(",")[0];
 		  $('.updateautocomplete').hide();     
@@ -44,8 +46,9 @@
 			$('#updateForm').append('<div style = "margin-top:1%">Room: <input type="text" name="" style = "position:absolute; left:10%;" id="updateroom" value="" data-clear-btn="true"></div>');
 			//$('#updateForm').append('<input type="text" name="" style = "margin-top:1%;" id="updateaff" value="" data-clear-btn="true"></br>');
 			$('#updatefirstname').val(fs);
-			$('#updatesecondname').val(sn);			
-			$('#updateroom').val(data.room);
+			$('#updatesecondname').val(sn);
+						
+			$('#updateroom').val(data.Room);
 			$('#updateaff').val(data.Affiliation);
 			$('#updateForm').append('<button id = "updateBtn" style = "margin-top:3%;" data-role="button" class="ui-btn ui-btn-inline">Update</button>');
 							// bind functionality
@@ -57,12 +60,28 @@
 	}	
 	
 	function updateStaffmember(aff){
+		oldName = selectedItem;
 		fn = $('#updatefirstname').val();
 		sn = $('#updatesecondname').val();
 		room = $('#updateroom').val();
 		aff = aff;
 		if (checkContentUpdate()){
-			deleteStaffMember(sn + "," + fn,room,aff);
+			$.post(
+				"php/updateStaffMember.php?",
+				{	
+				OldName: oldName.trim(),
+				FirstName: fn.trim(),
+				LastName: sn.trim(),
+				Room: room.trim(),
+				Affiliation: aff.trim()
+				},
+				function(data){
+					console.log(data);
+					getStaff();	
+					alert("Update successful");
+					$('#updateForm').empty();
+				}			
+			);
 		}
 	}
 	
@@ -84,36 +103,4 @@
 		}
 		return updateDataFine;
 	}
-	
-	function deleteStaffMember(name,room,aff){
-		$.post(
-			"php/deleteStaff.php?",
-			{	
-			Name: name
-			},
-			function(data){
-				console.log("deleted");
-				addStaffMember(fn,sn,room,aff);
-			}			
-		);		
-	}	
-
-	function addStaffMember(fn,sn,room,aff){
-		fn = upperCaseCheck(fn);
-		sn = upperCaseCheck(sn);
-		$.post(
-				"php/addStaff.php?",
-				{	
-				FirstName: fn.trim(),
-				LastName: sn.trim(),
-				Room: room.trim(),
-				Affiliation: aff.trim()
-				},
-				function(data){
-					console.log("updated");
-					getStaff();	
-					alert("Update successful")
-					$('#updateForm').empty();
-				}			
-			);
-	}	
+		

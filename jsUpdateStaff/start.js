@@ -38,12 +38,12 @@
 		});			
 	});	
 							
-	var allNames;
+	var allNames = new Array();
 	
 	function checkPersons(name){
-		var staff = allNames.split(';');
-		var found = false
-		for (var i = 0; i < staff.length-1; i++){
+		var staff = allNames;
+		var found = false;
+		for (var i = 0; i < staff.length; i++){
 			if (staff[i] === name){
 				found = true;
 			}
@@ -54,13 +54,15 @@
 	function getStaff(){
 		$.ajax({
 			type: "GET",
-			url: "php/processPersons.php?",
-			data: 'type=autocomplete'
+			url: "php/getData.php?",
+			data: 'type=person'
 		}).done(function(data) {
-			allNames = data;
-			data = data.split(";");
+			data = JSON.parse(data);
+			for (var i = 0; i < data.length; i++){
+				allNames.push(data[i].Name);
+			}
 			$(function() {
-				response = data;	
+				response = allNames;	
 			});
 		});	
 	}

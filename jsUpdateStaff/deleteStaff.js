@@ -35,7 +35,7 @@
 			},
 			function(data){
 				clear();
-				alert("Deletion successful.")
+				alert("Deletion successful.");
 				getStaff();
 			}			
 		);		

@@ -15,7 +15,7 @@ function InaktivitaetMessen()
 }
 	
 function showNavigation(roomNumber,Name){
-			//console.log(roomNumber);
+			console.log(roomNumber);
 			log('Click on show navigation',new Date());
 			document.getElementById("support").style.display = "none";
 			document.getElementById("textparts").innerHTML="";
@@ -153,6 +153,7 @@ function showNavigation(roomNumber,Name){
 					nameTagContent = localStorage.getItem(""+roomNumber+"_en");
 				}
 				else if (document.body.id === 'german'){
+					console.log(roomNumber)
 					nameTagContent = localStorage.getItem(""+roomNumber+"_de");
 				}
 				else if (document.body.id === 'portuguese'){

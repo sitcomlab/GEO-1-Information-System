@@ -41,65 +41,30 @@
 
 $( document ).on( "pagecreate", function() {
 $('#map').addClass('ui-btn-active');
+
+	var basement = new Array();
+	var firstFloor = new Array();
+	var secondFloor = new Array();
+	var thirdFloor = new Array();
+	var fourthFloor = new Array();
+	var fifthFloor = new Array();
+	var sixthFloor = new Array();
+	var special = new Array();
+	var wholeStaff = null;
+	var allStaffAE = new Array;
+	var allStaffFJ = new Array;	
+	var allStaffKO = new Array;
+	var allStaffPT = new Array;	
+	var allStaffUZ = new Array;
+	var allStaffAEUE = new Array;
+	var ifgi = new Array();
+	var ifg = new Array();
+	var ifloek = new Array();
+	var ifddg = new Array();
+	var gc = new Array();
+	var ifp = new Array();
+	var misc = new Array();
 	
-	$.post(
-			"php/processRooms.php?",
-		{	
-		},
-			function(data){
-					data = data.split(";");
-					var basement = "";
-					var firstFloor = "";
-					var secondFloor = "";
-					var thirdFloor = "";
-					var fourthFloor = "";
-					var fifthFloor = "";
-					var sixthFloor = "";
-					var special = "";
-
-					for ( var i = 0; i < data.length; i += 3 ){
-							if ( data[i].substring(0,1)==="0" ){
-								basement = basement + data[i] + ";" + data[i+1] + ";" + data[i+2] + ";";
-							}
-							else if ( parseInt(data[i]) > 0 && parseInt(data[i]) < 100){
-								firstFloor = firstFloor + data[i] + ";" + data[i+1] + ";" + data[i+2] + ";";
-							}
-							else if ( parseInt(data[i]) > 99 && parseInt(data[i]) < 200){
-								secondFloor = secondFloor + data[i] + ";" + data[i+1] + ";" + data[i+2] + ";";
-							}			
-							else if ( parseInt(data[i]) > 199 && parseInt(data[i]) < 300){
-								thirdFloor = thirdFloor + data[i] + ";" + data[i+1] + ";" + data[i+2] + ";";
-							}	
-							else if ( parseInt(data[i]) > 299 && parseInt(data[i]) < 400){
-								fourthFloor = fourthFloor + data[i] + ";" + data[i+1] + ";" + data[i+2] + ";";
-							}
-							else if ( parseInt(data[i]) > 399 && parseInt(data[i]) < 500){
-								fifthFloor = fifthFloor + data[i] + ";" + data[i+1] + ";" + data[i+2] + ";";
-							}				
-							else if ( parseInt(data[i]) > 499 && parseInt(data[i]) < 600){
-								sixthFloor = sixthFloor + data[i] + ";" + data[i+1] + ";" + data[i+2] + ";";
-							}
-							if(data[i+1] == "First aid room (Erste Hilfe)" 
-											|| data[i+1] =="StudLab 125" || data[i+1] =="StudLab 126" || data[i+1] =="StudLab 130" 
-											|| data[i+1] =="Front-Office" || data[i+1] == "Zentrum Digitaler Medien (ZDM)"
-											|| data[i+1] == "Seminar 242" || data[i+1] == "Seminar 323" || data[i+1] == "Seminar 401" || data[i+1] == "Seminar 513"
-											|| data[i+1] == "Library hall"){
-									special = special + data[i] + ";" + data[i+1] + ";" + data[i+2] + ";";
-								}
-					}
-
-					localStorage["floor0"] = basement.substr(0,basement.length-1);
-					localStorage["floor1"] = firstFloor.substr(0,firstFloor.length-1);
-					localStorage["floor2"] = secondFloor.substr(0,secondFloor.length-1);
-					localStorage["floor3"] = thirdFloor.substr(0,thirdFloor.length-1);
-					localStorage["floor4"] = fourthFloor.substr(0,fourthFloor.length-1);
-					localStorage["floor5"] = fifthFloor.substr(0,fifthFloor.length-1);
-					localStorage["floor6"] = sixthFloor.substr(0,sixthFloor.length-1);
-					localStorage["special"] = special.substr(0,sixthFloor.length-1);
-								
-			}			
-		);
-		
 		$.post(
 				"php/processDescription.php?",
 				{	
@@ -116,37 +81,156 @@ $('#map').addClass('ui-btn-active');
 
 		$.ajax({
 				type: "GET",
-				url: "php/processPersons.php?",
-				data: 'type=""'
+				url: "php/getData.php?",
+				data: 'type=room'
 		}).done(function(data){
-					console.log(data);
-					var data2 = data.split(";");		
-					var storeAllPeople = '{"employees": [';											
-					for (var j = 0; j < data2.length-2; j+=3){
-						if ( j == 0 ){
-							var staffMember = '{"member": "", "name": "' + data2[j] + '", "affiliation": "' + data2[j+1] + '", "depict": "", "room": "' + data2[j+2] + '"}';
-							storeAllPeople = storeAllPeople + staffMember;
-						}
-						else{
-							var staffMember = ',{"member": "", "name": "' + data2[j] + '", "affiliation": "' + data2[j+1] + '", "depict": "", "room": "' + data2[j+2] + '"}';
-							storeAllPeople = storeAllPeople + staffMember;
-						}
+			rooms = JSON.parse(data);
+			rooms = combineRooms(rooms);
+			sortRoom(rooms);	
+		});		
+		
+		$.ajax({
+				type: "GET",
+				url: "php/getData.php?",
+				data: 'type=person'
+		}).done(function(data){
+			wholeStaff = JSON.parse(data);
+			sortStaff(wholeStaff);	
+		});	
+
+		$.ajax({
+				type: "GET",
+				url: "php/getData.php?",
+				data: 'type=institute'
+		}).done(function(data){
+			affiliation = JSON.parse(data);
+			sortAffiliation(affiliation);	
+		});			
+		
+		function combineRooms(allRooms){
+			for ( var i = 0; i < allRooms.length-1; i++){
+				tempRoom = allRooms[i].Room;
+				tempName = allRooms[i].Name;
+				var j = i;
+				while (allRooms[j+1].Room == tempRoom){
+					tempName = tempName + ", " + allRooms[j+1].Name;
+					allRooms[j+1].Room = "";
+					j++;
+				}
+				allRooms[i].Name = tempName;
+				i = j;
+			}
+			
+			return allRooms;
+		}
+		
+		function sortRoom(obj){
+			for ( var i = 0; i < obj.length; i ++ ){
+					if ( obj[i].Room.substring(0,1)==="0" ){
+						basement.push(obj[i]);
 					}
-					storeAllPeople = storeAllPeople + ']}';
-					localStorage["storeAllPeople"] = storeAllPeople;
-					//console.log(storeAllPeople);		
-					sort();
-		});							
-			
-		function createEmployeeList(staff,logAction){
-			
+					else if ( parseInt(obj[i].Room) > 0 && parseInt(obj[i].Room) < 100){
+						firstFloor.push(obj[i]);
+					}
+					else if ( parseInt(obj[i].Room) > 99 && parseInt(obj[i].Room) < 200){
+						secondFloor.push(obj[i]);
+					}			
+					else if ( parseInt(obj[i].Room) > 199 && parseInt(obj[i].Room) < 300){
+						thirdFloor.push(obj[i]);;
+					}	
+					else if ( parseInt(obj[i].Room) > 299 && parseInt(obj[i].Room) < 400){
+						fourthFloor.push(obj[i]);;
+					}
+					else if ( parseInt(obj[i].Room) > 399 && parseInt(obj[i].Room) < 500){
+						fifthFloor.push(obj[i]);;
+					}				
+					else if ( parseInt(obj[i].Room) > 499 && parseInt(obj[i].Room) < 600){
+						sixthFloor.push(obj[i]);;
+					}
+					if(obj[i].Name == "First aid room (Erste Hilfe)" 
+									|| obj[i].Name =="StudLab 125" || obj[i].Name =="StudLab 126" || obj[i].Name =="StudLab 130" 
+									|| obj[i].Name =="Front-Office" || obj[i].Name == "Zentrum Digitaler Medien (ZDM)"
+									|| obj[i].Name == "Seminar 242" || obj[i].Name == "Seminar 323" || obj[i].Name == "Seminar 401" || obj[i].Name == "Seminar 513"
+									|| obj[i].Name == "Library hall"){
+							special.push(obj[i]);;
+						}
+			}			
+		}
+
+		function sortAffiliation(affiliation){
+			for (var i = 0; i < affiliation.length; i++){
+				if (affiliation[i].Affiliation === "Institute for Geoinformatics"){
+					ifgi.push(affiliation[i]);
+				}
+				else if (affiliation[i].Affiliation === "Institute for Geography"){
+					ifg.push(affiliation[i]);
+				}
+				else if (affiliation[i].Affiliation === "Institute for Landscape Ecology"){
+					ifloek.push(affiliation[i]);
+				}
+				else if (affiliation[i].Affiliation === "Fossil botany"){
+					ifp.push(affiliation[i]);
+				}
+				else if (affiliation[i].Affiliation === "Institute for Didactics of Geography"){
+					ifddg.push(affiliation[i]);
+				}	
+				else if (affiliation[i].Affiliation === "Geographic commission"){
+					gc.push(affiliation[i]);
+				}	
+				else {
+					misc.push(affiliation[i]);
+				}								
+			}
+		}
+		
+		function sortStaff(allStaff){
+			for (var i = 0; i < allStaff.length; i++){
+					if (allStaff[i].Name.substring(0,1)==="A" || allStaff[i].Name.substring(0,1)==="a" || allStaff[i].Name.substring(0,1)==="B" || allStaff[i].Name.substring(0,1)==="b" || 
+						allStaff[i].Name.substring(0,1)==="C" || allStaff[i].Name.substring(0,1)==="c" || allStaff[i].Name.substring(0,1)==="D" || allStaff[i].Name.substring(0,1)==="d" ||
+						allStaff[i].Name.substring(0,1)==="E" || allStaff[i].Name.substring(0,1)==="e"){
+						allStaffAE.push(allStaff[i]);						
+					}
+					else if (allStaff[i].Name.substring(0,1)==="F" || allStaff[i].Name.substring(0,1)==="f" || allStaff[i].Name.substring(0,1)==="G" || allStaff[i].Name.substring(0,1)==="g" || 
+						allStaff[i].Name.substring(0,1)==="H"  || allStaff[i].Name.substring(0,1)==="h" || allStaff[i].Name.substring(0,1)==="I" || allStaff[i].Name.substring(0,1)==="i" ||
+						allStaff[i].Name.substring(0,1)==="J" || allStaff[i].Name.substring(0,1)==="j"){
+						allStaffFJ.push(allStaff[i]);
+					}
+					else if (allStaff[i].Name.substring(0,1)==="K" || allStaff[i].Name.substring(0,1)==="k" || allStaff[i].Name.substring(0,1)==="L" || allStaff[i].Name.substring(0,1)==="l" || 
+						allStaff[i].Name.substring(0,1)==="M" || allStaff[i].Name.substring(0,1)==="m" || allStaff[i].Name.substring(0,1)==="N" || allStaff[i].Name.substring(0,1)==="n" ||
+						allStaff[i].Name.substring(0,1)==="O" || allStaff[i].Name.substring(0,1)==="o"){
+						allStaffKO.push(allStaff[i]);
+					}
+					else if (allStaff[i].Name.substring(0,1)==="P" || allStaff[i].Name.substring(0,1)==="p" || allStaff[i].Name.substring(0,1)==="Q" || allStaff[i].Name.substring(0,1)==="q" || 
+						allStaff[i].Name.substring(0,1)==="R" || allStaff[i].Name.substring(0,1)==="r" || allStaff[i].Name.substring(0,1)==="S" || allStaff[i].Name.substring(0,1)==="s" ||
+						allStaff[i].Name.substring(0,1)==="T" || allStaff[i].Name.substring(0,1)==="t"){
+						allStaffPT.push(allStaff[i]);
+					}
+					else if (allStaff[i].Name.substring(0,1)==="U" || allStaff[i].Name.substring(0,1)==="u" || allStaff[i].Name.substring(0,1)==="V" || allStaff[i].Name.substring(0,1)==="v" || 
+						allStaff[i].Name.substring(0,1)==="W" || allStaff[i].Name.substring(0,1)==="w" || allStaff[i].Name.substring(0,1)==="X" || allStaff[i].Name.substring(0,1)==="x" ||
+						allStaff[i].Name.substring(0,1)==="Y" || allStaff[i].Name.substring(0,1)==="y" || allStaff[i].Name.substring(0,1)==="Z" || allStaff[i].Name.substring(0,1)==="z"){
+						allStaffUZ.push(allStaff[i]);
+					}	
+					else if (allStaff[i].Name.substring(0,1)==="AE" || allStaff[i].Name.substring(0,1)==="ae" || allStaff[i].Name.substring(0,1)==="OE" || allStaff[i].Name.substring(0,1)==="oe" || 
+						allStaff[i].Name.substring(0,1)==="UE" || allStaff[i].Name.substring(0,1)==="ue"){
+						allStaffAEUE.push(allStaff[i]) = storePeopleU_Z + staffMember;
+					}	
+			}
+		}
+		
+		function sortInstituteByName(institute){
+			institute.sort(function(a, b) {
+			    var textA = a.Name.toUpperCase();
+			    var textB = b.Name.toUpperCase();
+			    return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+			});
+			return institute;
+		}
+		
+		function createEmployeeList(staff,logAction){		
 				log(logAction,new Date());
-				document.getElementById("people").innerHTML="";
-				var peopleContentA_E = localStorage.getItem(staff);		
-				var allPeoplestaff = JSON.parse(peopleContentA_E);
-				var abcde_length = allPeoplestaff.employees.length;				
+				document.getElementById("people").innerHTML="";			
 				
-				if (abcde_length < 1){
+				if (staff.length < 1){
 						if (document.body.id === 'german'){
 							content = "Keine Mitarbeiter verfügbar."
 						}
@@ -159,8 +243,8 @@ $('#map').addClass('ui-btn-active');
 					$( "#people" ).append( content ).collapsibleset( "refresh" );
 				}
 				else{
-						for (var  i = 0; i < abcde_length; i++ ) { 
-								var affiliation = allPeoplestaff.employees[i].affiliation;
+						for (var  i = 0; i < staff.length; i++ ) { 
+								var affiliation = staff[i].Affiliation;
 								var roomText;
 								var buttonText = 'Show Navigation';
 								var roomNumber;
@@ -177,24 +261,23 @@ $('#map').addClass('ui-btn-active');
 									affiliation = changeAffiliationLanguage('por',affiliation);
 									buttonText = 'Exibir navegação';
 								}
-								var content = "<div style = 'display:block;' data-role='collapsible' id='set" + i + "' class='A_E'><h3>" + allPeoplestaff.employees[i].name + 
-											  "</h3><div><img style='width:60px; float:left; margin-right:20px; margin-bottom:10px;' src="+allPeoplestaff.employees[i].depict+ 
-											  "><p style='margin-bottom:5px;'>" + affiliation + ", "+roomText+" " + allPeoplestaff.employees[i].room + "</p>"+
-											  "<button id=" + allPeoplestaff.employees[i].room + " class='ui-btn ui-btn-inline' style='margin-right: 30px; margin-bottom: 10px;' "+
-											  "onclick=showNavigation(this.id)>"+buttonText+"</button></div></div>";							
+								var content = "<div style = 'display:block;' data-role='collapsible' id='set" + i + "' class='A_E'><h3>" + staff[i].Name + 
+											  "</h3><div><img style='width:60px; float:left; margin-right:20px; margin-bottom:10px;' src="+ 
+											  "><p style='margin-bottom:5px;'>" + affiliation + ", "+roomText+" " + staff[i].Room + "</p>"+
+											  "<button id=" + staff[i].Room + " class='ui-btn ui-btn-inline' style='margin-right: 30px; margin-bottom: 10px;' "+
+											  "onclick=showNavigation('" + staff[i].Room + "')>"+buttonText+"</button></div></div>";							
 								$( "#people" ).append( content ).collapsibleset( "refresh" );									
 						}
 					}	
 		}
 
 		function createRoomList(floor,logAction){
-				log(logAction,new Date())
+				log(logAction,new Date());
 				document.getElementById("room").innerHTML="";
-				var allRooms = localStorage.getItem(floor);
-				allRooms = allRooms.split(";");
+				var allRooms = floor;
 								
-					for ( var i = 0; i < allRooms.length; i+=3 ) {  
-								var affiliation = allRooms[i+1];
+					for ( var i = 0; i < allRooms.length; i++ ) {  
+								var affiliation = allRooms[i].Affiliation;
 								var buttonText = 'Show Navigation';						
 								if (document.body.id === 'german'){
 									affiliation = changeAffiliationLanguage('ger',affiliation);
@@ -207,10 +290,10 @@ $('#map').addClass('ui-btn-active');
 									affiliation = changeAffiliationLanguage('por',affiliation);
 									buttonText = 'Exibir navegação';
 								}
-								var content = "<div style = 'display:block;' data-role='collapsible' id='set" + i + "' class='A_E'><h3>" + allRooms[i] + 
-											  "</h3><div><p style='margin-bottom:5px;'>" + affiliation + "</p>"+"<p style='margin-bottom:5px;'>" + allRooms[i+2] + "</p>"+
-											  "<button id="+allRooms[i]+" class='ui-btn ui-btn-inline' style='margin-right: 30px; margin-bottom: 10px;' "+
-											  "onclick=showNavigation(this.id)>"+buttonText+"</button></div></div>";							
+								var content = "<div style = 'display:block;' data-role='collapsible' id='set" + i + "' class='A_E'><h3>" + allRooms[i].Room + 
+											  "</h3><div><p style='margin-bottom:5px;'>" + affiliation + "</p>"+"<p style='margin-bottom:5px;'>" + allRooms[i].Name + "</p>"+
+											  "<button id="+allRooms[i].Room+" class='ui-btn ui-btn-inline' style='margin-right: 30px; margin-bottom: 10px;' "+
+											  "onclick=showNavigation('"+allRooms[i].Room+"')>"+buttonText+"</button></div></div>";							
 							$( "#room" ).append( content ).collapsibleset( "refresh" );									
 					}
 		}	
@@ -218,19 +301,17 @@ $('#map').addClass('ui-btn-active');
 		function createInstituteList(institute,logAction){
 				log(logAction,new Date())
 				document.getElementById("instituteList").innerHTML="";
-				var peopleContentIFGI = localStorage.getItem(institute);	
-				var allPeoplestaff = JSON.parse(peopleContentIFGI);
-				var ifgi_length = allPeoplestaff.employees.length;
 				var roomText = 'Room';
-				var buttonText = 'Show Navigation'
+				var buttonText = 'Show Navigation';
+				institute = sortInstituteByName(institute);
 				
-				for (var  i = 0; i < ifgi_length; i++ ) {  
-								var affiliation = allPeoplestaff.employees[i].affiliation;
+				for (var  i = 0; i < institute.length; i++ ) {  
+								var affiliation = institute[i].Affiliation;
 								var buttonText = 'Show Navigation';						
 								if (document.body.id === 'german'){
 									affiliation = changeAffiliationLanguage('ger',affiliation);
 									buttonText = 'Zur Wegbeschreibung';
-									roomText = 'Raum'
+									roomText = 'Raum';
 								}
 								if (document.body.id === 'english'){
 									roomText = 'Room';
@@ -238,80 +319,79 @@ $('#map').addClass('ui-btn-active');
 								if (document.body.id === 'portuguese'){
 									affiliation = changeAffiliationLanguage('por',affiliation);
 									buttonText = 'Exibir navegação';
-									roomText = 'Sala'
+									roomText = 'Sala';
 								}
-								var content = "<div style = 'display:block;' data-role='collapsible' id='set" + i + "' class='A_E'><h3>" + allPeoplestaff.employees[i].name + 
-											  "</h3><div><img style='width:60px; float:left; margin-right:20px; margin-bottom:10px;' src="+allPeoplestaff.employees[i].depict+ 
-											  "><p style='margin-bottom:5px;'>" + affiliation + ", "+roomText+" " + allPeoplestaff.employees[i].room + "</p>"+
-											  "<button id=" + allPeoplestaff.employees[i].room + " class='ui-btn ui-btn-inline' style='margin-right: 30px; margin-bottom: 10px;' "+
-											  "onclick=showNavigation(this.id)>"+buttonText+"</button></div></div>";							
+								var content = "<div style = 'display:block;' data-role='collapsible' id='set" + i + "' class='A_E'><h3>" + institute[i].Name + 
+											  "</h3><div><img style='width:60px; float:left; margin-right:20px; margin-bottom:10px;' src="+ 
+											  "><p style='margin-bottom:5px;'>" + affiliation + ", "+roomText+" " + institute[i].Room + "</p>"+
+											  "<button id=" + institute[i].Room + " class='ui-btn ui-btn-inline' style='margin-right: 30px; margin-bottom: 10px;' "+
+											  "onclick=showNavigation('"+ institute[i].Room +"')>"+buttonText+"</button></div></div>";							
 							$( "#instituteList" ).append( content ).collapsibleset( "refresh" );									
 					}
 		}
 
 		$("#A").click(function(){
-				createEmployeeList('peopleA_E','Search for people with A-E');
+				createEmployeeList(allStaffAE,'Search for people with A-E');
 		});
 
 		$("#F").click(function(){
-				createEmployeeList('peopleF_J','Search for people with F-J');
+				createEmployeeList(allStaffFJ,'Search for people with F-J');
 		});
 
 		$("#K").click(function(){
-				createEmployeeList('peopleK_O','Search for people with K-O');
+				createEmployeeList(allStaffKO,'Search for people with K-O');
 		});
 
 		$("#P").click(function(){
-				createEmployeeList('peopleP_T','Search for people with P-T');			
+				createEmployeeList(allStaffPT,'Search for people with P-T');			
 		});
 
 		$("#U").click(function(){
-				createEmployeeList('peopleU_Z','Search for people with U-Z');
+				createEmployeeList(allStaffUZ,'Search for people with U-Z');
 		});
 					
 		$("#AE").click(function(){
-				createEmployeeList('peopleAE_UE','Search for people with AE-UE');
+				createEmployeeList(allStaffAEUE,'Search for people with AE-UE');
 		});
 		
 		$("#floor0").click(function(){
-				createRoomList('floor0','Search for Floor 0');
+				createRoomList(basement,'Search for Floor 0');
 		});
 		
 		$("#floor1").click(function(){
-				createRoomList('floor1','Search for Floor 1');
+				createRoomList(firstFloor,'Search for Floor 1');
 		});			
 		
 		$("#floor2").click(function(){
-				createRoomList('floor2','Search for Floor 2');
+				createRoomList(secondFloor,'Search for Floor 2');
 		});			
 		
 		$("#floor3").click(function(){
-				createRoomList('floor3','Search for Floor 3');
+				createRoomList(thirdFloor,'Search for Floor 3');
 		});
 		
 		$("#floor4").click(function(){
-				createRoomList('floor4','Search for Floor 4');
+				createRoomList(fourthFloor,'Search for Floor 4');
 		});
 		
 		$("#floor5").click(function(){
-				createRoomList('floor5','Search for Floor 5');
+				createRoomList(fifthFloor,'Search for Floor 5');
 		});
 		
 		$("#floor6").click(function(){
-				createRoomList('floor6','Search for Floor 6');
+				createRoomList(sixthFloor,'Search for Floor 6');
 		});
 		
 		//does not use function createRoomList since it has a different order of used slots (allRooms[...])
 		$("#special").click(function(){
 				log('Search for special rooms',new Date())
 				document.getElementById("room").innerHTML="";
-				var allRooms = localStorage.getItem("special");
-				allRooms = allRooms.split(";");
+				var allRooms = special;
 				var roomText = 'Room';
 				
-					for ( var i = 0; i < allRooms.length-1; i+=3 ) {  
-								var roomNumber = allRooms[i+1];
-								var affiliation = allRooms[i+1];
+					for ( var i = 0; i < allRooms.length-1; i++ ) {  
+								var roomNumber = allRooms[i].Name;
+								var affiliation = allRooms[i].Affiliation;
 								var buttonText = 'Show Navigation';						
 								if (document.body.id === 'german'){
 									roomText = 'Raum';
@@ -329,39 +409,39 @@ $('#map').addClass('ui-btn-active');
 									buttonText = 'Exibir navegação';
 								}
 								var content = "<div style = 'display:block;' data-role='collapsible' id='set" + i + "' class='A_E'><h3>" + roomNumber + 
-											  "</h3><div><p style='margin-bottom:5px;'> "+roomText+" " + allRooms[i] + "</p>"+"<p style='margin-bottom:5px;'></p>"+
-											  "<button id="+allRooms[i]+" class='ui-btn ui-btn-inline' style='margin-right: 30px; margin-bottom: 10px;' "+
-											  "onclick=showNavigation(this.id)>"+buttonText+"</button></div></div>";							
+											  "</h3><div><p style='margin-bottom:5px;'> "+roomText+" " + allRooms[i].Room + "</p>"+"<p style='margin-bottom:5px;'></p>"+
+											  "<button id="+allRooms[i].Room+" class='ui-btn ui-btn-inline' style='margin-right: 30px; margin-bottom: 10px;' "+
+											  "onclick=showNavigation('"+allRooms[i].Room+"')>"+buttonText+"</button></div></div>";							
 							$( "#room" ).append( content ).collapsibleset( "refresh" );									
 					}
 		});
 				
 		$("#ifgi").click(function(){
-				createInstituteList('storeifgi','Search for ifgi');
+				createInstituteList(ifgi,'Search for ifgi');
 				});
 	
 		$("#geogr").click(function(){
-				createInstituteList('storeifg','Search for ifg');
+				createInstituteList(ifg,'Search for ifg');
 		});
 	
 		$("#dgeogr").click(function(){
-				createInstituteList('storeifdg','Search for ifdg');
+				createInstituteList(ifddg,'Search for ifdg');
 		});	
 		
 		$("#loek").click(function(){
-				createInstituteList('storeloek','Search for loek');
+				createInstituteList(ifloek,'Search for loek');
 		});
 		
 		$("#geopal").click(function(){
-				createInstituteList('storegeopal','Search for geopal');
+				createInstituteList(ifp,'Search for geopal');
 		});	
 		
 		$("#misc").click(function(){
-				createInstituteList('storemisc','Search for misc');
+				createInstituteList(misc,'Search for misc');
 		});			
 
 		$("#geocomm").click(function(){
-				createInstituteList('storegeocomm','Search for geocomm');
+				createInstituteList(gc,'Search for geocomm');
 		});
 
 		function changeAffiliationLanguage(language,oldAffiliation){
