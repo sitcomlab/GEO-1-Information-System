@@ -40,10 +40,10 @@
 			data = JSON.parse(data);
 			$('#updateForm').empty();
 			$('#updateForm').append('<p id = tempPlaceholder>Use the following fields to update the staff member.</p>');
-			$('#updateForm').append('<div>First name: <input type="text" name="" style = "position:absolute; left:10%;" id="updatefirstname" data-clear-btn="true"></div>');
-			$('#updateForm').append('<div style = "margin-top:1%">Second name: <input type="text" name="" style = "position:absolute; left:10%;" id="updatesecondname" data-clear-btn="true"></div>');
+			$('#updateForm').append('<div>First name: <input type="text" name="" style = "position:absolute; left:12%;" id="updatefirstname" data-clear-btn="true"></div>');
+			$('#updateForm').append('<div style = "margin-top:1%">Second name: <input type="text" name="" style = "position:absolute; left:12%;" id="updatesecondname" data-clear-btn="true"></div>');
 			$('#updateForm').append('<div style = "margin-top:1%"><p>Please note: Rooms on the basement floor have a special notation, e.g. 0.01 for room number 1 on the basement floor, 0.10 for room number 10 on the basement floor.</p></div>');
-			$('#updateForm').append('<div style = "margin-top:1%">Room: <input type="text" name="" style = "position:absolute; left:10%;" id="updateroom" value="" data-clear-btn="true"></div>');
+			$('#updateForm').append('<div style = "margin-top:1%">Room: <input type="text" name="" style = "position:absolute; left:12%;" id="updateroom" value="" data-clear-btn="true"></div>');
 			//$('#updateForm').append('<input type="text" name="" style = "margin-top:1%;" id="updateaff" value="" data-clear-btn="true"></br>');
 			$('#updatefirstname').val(fs);
 			$('#updatesecondname').val(sn);
@@ -77,8 +77,10 @@
 				},
 				function(data){
 					console.log(data);
+					clearForm();
 					getStaff();	
-					alert("Update successful");
+					alert("Update successful. Refresh the page in order to adopt the changes in the display section.");
+					location.reload();
 					$('#updateForm').empty();
 				}			
 			);

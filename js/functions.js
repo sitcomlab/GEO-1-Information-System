@@ -130,7 +130,7 @@ function showNavigation(roomNumber,Name){
 			
 			var mapImage = document.createElement("img");
 				mapImage.setAttribute("src","Images/Maps_Photos/" + roomNumber + "Karte.jpg");
-				mapImage.setAttribute("width","100%");
+				mapImage.setAttribute("width","90%");
 			var floorTag = document.createElement("p");
 				floorTag.setAttribute("id","floor");
 				var floorContent = document.createTextNode(floorNumber);

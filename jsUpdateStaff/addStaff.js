@@ -24,7 +24,10 @@
 				firstName = document.getElementById("firstname").value;
 				secondName = document.getElementById("secondname").value;
 				room = document.getElementById("room").value;
-				affiliation = document.getElementById("selectAff").value;	
+				affiliation = document.getElementById("selectAff").value;
+				if ( affiliation === "Miscellaneous" && document.getElementById("specifyMisc").value.trim() != ""){
+					affiliation = document.getElementById("specifyMisc").value;
+				}	
 				
 				$('#confirmation').append(	'<b>Would like to add the following staff member?</b>' + 
 											'<p id = "fn">First name: ' + firstName + '</p>' + 
@@ -61,7 +64,7 @@
 				Affiliation: aff.trim()
 				},
 				function(data){
-					alert("Added " + sn + "," + fs + " successfully.");
+					alert("Added " + sn + "," + fs + " successfully. Refresh the page in order to adopt the changes in the display section.");
 					getStaff();	
 					clearForm();
 				}			
@@ -71,6 +74,7 @@
 	function clearForm(){
 		$("#firstname").val("");
 		$("#secondname").val("");
+		$("#updatename").val("");
 		$("#room").val("");
 		$("#confirmation").empty();
 	}

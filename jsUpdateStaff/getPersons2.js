@@ -25,7 +25,7 @@
 								+	'</ul>'
 								+'</div>';	
 				$(".maintenance_tabs").append(mynavbar).trigger('create');
-				log('starts with photo',new Date());
+
 				}
 				else{
 				var mynavbar =	'<div data-role="navbar">'
@@ -35,7 +35,7 @@
 								+	'</ul>'
 								+'</div>';	
 				$(".maintenance_tabs").append(mynavbar).trigger('create');
-				log('starts with map',new Date());
+
 				}
 	});
 
@@ -153,7 +153,7 @@ $('#map').addClass('ui-btn-active');
 									|| obj[i].Name == "Seminar 242" || obj[i].Name == "Seminar 323" || obj[i].Name == "Seminar 401" || obj[i].Name == "Seminar 513"
 									|| obj[i].Name == "Library hall" || obj[i].Affiliation == "Seminar room" || obj[i].Affiliation == "Library"
 									|| obj[i].Affiliation == "Meeting"){
-										console.log(obj[i].Affiliation)
+
 							special.push(obj[i]);
 						}
 			}
@@ -230,7 +230,7 @@ $('#map').addClass('ui-btn-active');
 		}
 		
 		function createEmployeeList(staff,logAction){		
-				log(logAction,new Date());
+
 				document.getElementById("people").innerHTML="";			
 				
 				if (staff.length < 1){
@@ -275,7 +275,7 @@ $('#map').addClass('ui-btn-active');
 		}
 
 		function createRoomList(floor,logAction){
-				log(logAction,new Date());
+
 				document.getElementById("room").innerHTML="";
 				var allRooms = floor;
 								
@@ -302,7 +302,7 @@ $('#map').addClass('ui-btn-active');
 		}	
 			
 		function createInstituteList(institute,logAction){
-				log(logAction,new Date())
+
 				document.getElementById("instituteList").innerHTML="";
 				var roomText = 'Room';
 				var buttonText = 'Show Navigation';
@@ -387,7 +387,7 @@ $('#map').addClass('ui-btn-active');
 		
 		//does not use function createRoomList since it has a different order of used slots (allRooms[...])
 		$("#special").click(function(){
-				log('Search for special rooms',new Date())
+
 				document.getElementById("room").innerHTML="";
 				var allRooms = special;
 				var roomText = 'Room';

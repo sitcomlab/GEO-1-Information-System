@@ -36,7 +36,21 @@
 			text = $(this).text();
 			$(this).closest("ul").prev("form").find("input").val(text); 
 		});			
+		
+		$('#selectAff').on('change', function () {
+		        val   = document.getElementById("selectAff").value;
+		        
+		        if (val === "Miscellaneous"){
+		        	specifyAffiliation();
+		        }else{
+		        	$('#specifyMisc').remove();
+		        }
+		});
 	});	
+	
+	function specifyAffiliation(){
+		$('#chooseAff').append('<input type="text" name="name" id="specifyMisc" placeholder="Please specify" />');
+	}
 							
 	var allNames = new Array();
 	

@@ -35,8 +35,9 @@
 			},
 			function(data){
 				clear();
-				alert("Deletion successful.");
+				alert("Deletion successful. Refresh the page in order to adopt the changes in the display section.");
 				getStaff();
+				location.reload();
 			}			
 		);		
 	}
