@@ -1,11 +1,7 @@
 <?php
-$userdatei = fopen("instructions.txt","r");
-$allDescription = '';
-while(!feof($userdatei))
-   {
-   $zeile = fgets($userdatei);
-   $allDescription = $allDescription.$zeile;
-   }
-   echo $allDescription;
+
+$userdatei = fopen("instructions.txt", "r");
+while (!feof($userdatei)) {
+	echo fgets($userdatei);
+}
 fclose($userdatei);
-?>

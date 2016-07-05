@@ -1,10 +1,6 @@
 <?php
-$dbconn = pg_connect("host=giv-konkol.uni-muenster.de port=5432 dbname=GEO1 user=postgres password=navigeo1")
-	or die('Verbindungsaufbau fehlgeschlagen: ' . pg_last_error());
 
-	$name = gethostbyname($_GET['name']); 
-	$query=pg_query($dbconn,"SELECT \"Room\", \"Affiliation\" FROM \"GEO1\" WHERE \"Name\" = '".$name."'");
-	$resultArray = pg_fetch_all($query);
-	$json = json_encode($resultArray[0]);
-	echo $json;
-?>
+require('bootstrap.inc.php');
+
+$result = $db->fetch_one("SELECT Room, Affiliation FROM \"GEO1\" WHERE Name = $1 LIMIT 1", array($_GET['name']));
+echo json_encode($result);
