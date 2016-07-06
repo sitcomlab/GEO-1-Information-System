@@ -2,5 +2,6 @@
 
 require('bootstrap.inc.php');
 
-$db->execute("INSERT INTO \"LoggedData\" VALUES (DEFAULT, $1)", array($_POST['Actions']));
+$db->execute('INSERT INTO "LoggedData" ("Logging") VALUES ($1)', array($_POST['Actions']));
+
 echo $_POST['Actions'];
