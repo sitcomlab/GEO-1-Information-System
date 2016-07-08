@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "GEO1 Infosystem Admin"
+AuthUserFile /path/to/admin/.htpasswd
+Require valid-user

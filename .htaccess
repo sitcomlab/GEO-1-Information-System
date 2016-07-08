@@ -1,0 +1,4 @@
+Order deny,allow
+Deny from all
+Allow from 128.176.0.0/16
+Allow from 10.0.0.0/8

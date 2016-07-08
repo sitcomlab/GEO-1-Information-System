@@ -1,6 +1,6 @@
 <?php
 
-require('bootstrap.inc.php');
+require('../admin/php/bootstrap.inc.php');
 
 $result = array();
 switch ($_GET['type']) {
