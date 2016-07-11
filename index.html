@@ -2,15 +2,29 @@
 <html lang="en">   
     <head>
         <title>GEO 1</title>
-		<frame src="verweise3.htm" name="Navigation" scrolling="no">	<!-- disables the ability to scroll -->
         <meta name="viewport" content="width=1024" />
-        <meta charset="utf-8">   
-		<script language="JavaScript"> 
-			var eingabe = window.prompt("Bitte Passwort eingeben",""); 
-			document.location.href = eingabe + ".html"; 	
-		</script>
-    </head>
-    <body> 
+        <meta charset="utf-8" />
 
-    </body>  
+        <link type="text/css" rel="stylesheet" href="css/system.css" />
+        <link type="text/css" rel="stylesheet" href="css/layout-default-latest.css" />
+		<link type="text/css" rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="js/jquery.layout-latest.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    </head>
+    <body id="english">
+		<div class="ui-layout-north" id="north" style="overflow-y:hidden;">	
+			<div id="support">
+				<p id="title">GEO 1 Information System</p>
+			</div>
+		</div>
+		<div class="ui-layout-south">
+			<ul>
+				<li style="width:100%;"><a class="ui-btn" href="#" onclick="window.location='mainpage.html'">Frontpage</a></li>
+				<li style="width:100%;"><a class="ui-btn" href="#" onclick="window.location='admin/index.html'">Administration Area</a></li>
+			</ul>			
+		</div>
+	</body>  
 </html>  

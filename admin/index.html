@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>GEO1 Information System Administration</title>
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>	
+		<script type="text/javascript" src="js/jquery.layout-latest.js"></script>
+
+		<script src="js/deleteStaff.js"></script>
+		<script src="js/addStaff.js"></script>
+		<script src="js/start.js"></script>
+		<script src="js/updateStaffMember.js"></script>			
+		<script src="http:///code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="../css/system.css">
+		<link type="text/css" rel="stylesheet" href="../css/layout-default-latest.css" />
+		<script src="js/functions2.js" type="text/javascript"></script>
+		<script src="js/getPersons2.js" type="text/javascript"></script>
+
+	</head>
+	<body id="german">
+		<div data-role="page" id="myPage">
+			<div data-role="tabs">
+				<div data-role="header" >
+					<h1>GEO1 Information System Administration</h1>
+					<div data-role="navbar">
+						<ul>
+							<li><a href="#delete" class="ui-btn-active">Delete staff member</a></li>
+							<li><a href="#add">Add new staff member</a></li>
+							<li><a href="#update">Update staff member</a></li>
+							<li><a href="#display">Display</a></li>
+						</ul>
+					</div><!-- /navbar -->
+				</div><!-- /header -->
+
+				<div id="add" style="margin: 3% 5%;">
+					<label for="search-1">Enter a name:</label>
+					<input type="text" name="text-1" id="firstname" value="" placeholder="Enter the first name" data-clear-btn="true">
+					<input type="text" name="text-1" id="secondname" value="" placeholder="Enter the second name" data-clear-btn="true">
+					<fieldset id="chooseAff" data-role="controlgroup" data-type="horizontal" style="margin-top:3%;">
+						    <legend>Choose an affiliation:</legend>
+						    <label for="select-native-11">Select A</label>
+						    <select name="select-native-11" id="selectAff">
+						        <option value="Common Section">Common Section</option>
+						        <option value="Dean">Dean</option>
+						        <option value="Facility Management">Facility Management</option>
+								<option value="Fossil botany">Fossil botany</option>
+								<option value="Geographic commission">Geographic commission</option>
+								<option value="Institute for Didactics of Geography">Institute for Didactics of Geography</option>
+								<option value="Institute for Geography">Institute for Geography</option>
+								<option value="Institute for Geoinformatics">Institute for Geoinformatics</option>
+								<option value="Institute for Landscape Ecology">Institute Landscape Ecology</option>
+								<option value="IVV Geosciences">IVV Geosciences</option>
+								<option value="Library">Library</option>
+								<option id="test" value="Miscellaneous">Miscellaneous</option>
+							</select>
+					</fieldset>
+					<p style="margin-top:3%;">Please note: Rooms on the basement floor have a special notation, e.g. 0.01 for room number 1 on the basement floor, 0.10 for room number 10 on the basement floor.</p>					
+					<input type="text" name="text-1" id="room" value="" placeholder="Enter a room number:" data-clear-btn="true">					
+					<div id="buttonsAddStaff"></div>
+					<div id="confirmation" style="margin-top:3%;"></div>
+				</div>			
+				<div id="delete" style="margin: 3% 5%;">
+					     <label for="search-1">After you enter at least three characters the autocomplete function will show all possible matches.</label>
+					     <ul id="name" class="autocomplete"  data-role="listview" data-inset="true" data-filter="true" 
+							 data-filter-placeholder="" data-filter-theme="e"></ul>
+					<div id="buttonsDeleteStaff">
+					</div>
+				</div>				
+				<div id="update" style="margin: 3% 5%;">
+					     <label for="search-2">Choose the staff member you want to update. After you enter at least three characters the autocomplete function will show all possible matches.</label>
+					     <ul id="updatename" name="search-2" class="updateautocomplete"  data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="" data-filter-theme="e"></ul>
+					<div id="updateForm" style="margin-top:3%;"></div>		
+				</div>
+				<div id="display" style="margin: 3% 5%;">
+					<div id="persons" class="ui-body-d ui-content" style="width:60%;">                   
+						<div id="allChoosings">					
+							<button id="A" data-mini="true" data-inline="true" class="ui-btn ui-btn-inline" class="show-page-loading-msg" style='margin-right: 30px' >A-E</button>
+							<button id="F" class="ui-btn ui-btn-inline" style='margin-right: 30px'>F-J</button>
+							<button id="K" class="ui-btn ui-btn-inline" style='margin-right: 30px'>K-O</button>
+							<button id="P" class="ui-btn ui-btn-inline" style='margin-right: 30px'>P-T</button>
+							<button id="U" class="ui-btn ui-btn-inline" style='margin-right: 30px'>U-Z</button>
+							<button id="AE" class="ui-btn ui-btn-inline" style='margin-right: 30px'>Ä-Ö-Ü</button>	
+						</div>
+						<div id="stafflist" style="height: 500px; width:100%;position:relative; left:-5%; margin-top: 25%; margin-left:0%;">
+							<div id="div2" style="max-height:100%;overflow:auto;">
+								<div style="margin-right:25%; margin-left:10%;" data-role="collapsibleset" data-content-theme="a" data-iconpos="right" id="people" style="height: 370px;position:relative;"></div>
+							</div>
+						</div>			
+					</div>												
+					<div id="textpart" style="position: absolute; top: 35%; right: 5%;">
+						<div id="text"></div>
+					</div>		
+					<div id="mapImage" style="position: absolute; left: 50%; top: 35%; width: 80%;"></div>
+				</div>							
+			</div>		
+		</div>
+	</body>
+</html>
